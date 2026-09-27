@@ -1,0 +1,86 @@
+GCP file: C:/Users/JSeppi/CODE/houston1947\gcps_frozen_v2.csv
+N GCPs: 32
+Fit space: EPSG:2278 (pixel -> target CRS directly; matches the warp)
+
+--- Polynomial order 1 ---
+In-sample RMSE (ft): 118.19   max resid: 269.35
+Leave-one-out RMSE (ft): 133.14   LOO max: 312.45
+Worst 5 GCPs by LOO residual (id, pixel_x, pixel_y, lon, lat, in-sample_ft, LOO_ft):
+  (N06, 8985.0, 4320.0, -95.283543, 29.750130) -> in-sample 269.35 ft, LOO 312.45 ft
+  (N02, 2696.0, 1072.0, -95.410229, 29.806850) -> in-sample 231.31 ft, LOO 260.30 ft
+  (N10, 2260.0, 7366.0, -95.417863, 29.696988) -> in-sample 191.89 ft, LOO 236.81 ft
+  (N03, 4085.0, 920.0, -95.382037, 29.810560) -> in-sample 181.43 ft, LOO 207.25 ft
+  (E, 3629.0, 5852.0, -95.390947, 29.724364) -> in-sample 182.97 ft, LOO 196.13 ft
+
+--- Polynomial order 2 ---
+In-sample RMSE (ft): 75.53   max resid: 182.22
+Leave-one-out RMSE (ft): 98.46   LOO max: 241.16
+Worst 5 GCPs by LOO residual (id, pixel_x, pixel_y, lon, lat, in-sample_ft, LOO_ft):
+  (N03, 4085.0, 920.0, -95.382037, 29.810560) -> in-sample 182.22 ft, LOO 241.16 ft
+  (N02, 2696.0, 1072.0, -95.410229, 29.806850) -> in-sample 160.93 ft, LOO 197.12 ft
+  (N08, 5116.0, 7081.0, -95.361319, 29.702196) -> in-sample 148.85 ft, LOO 184.69 ft
+  (N10, 2260.0, 7366.0, -95.417863, 29.696988) -> in-sample 58.38 ft, LOO 174.51 ft
+  (N06, 8985.0, 4320.0, -95.283543, 29.750130) -> in-sample 113.55 ft, LOO 169.79 ft
+
+Full per-GCP residual table (order-2, in-sample and LOO):
+    A  px=(5068.0,3802.0)  lon/lat=(-95.362547,29.759960)  in-sample=27.43ft  LOO=32.07ft
+    B  px=(3330.0,3237.0)  lon/lat=(-95.397264,29.769545)  in-sample=77.27ft  LOO=85.99ft
+    C  px=(2240.0,4789.0)  lon/lat=(-95.418790,29.742315)  in-sample=31.10ft  LOO=35.12ft
+    D  px=(4268.0,4955.0)  lon/lat=(-95.378577,29.739792)  in-sample=39.86ft  LOO=45.86ft
+    E  px=(3629.0,5852.0)  lon/lat=(-95.390947,29.724364)  in-sample=119.80ft  LOO=133.02ft
+    F  px=(3303.0,1263.0)  lon/lat=(-95.398102,29.803971)  in-sample=57.73ft  LOO=66.36ft
+    G  px=(8735.0,4880.0)  lon/lat=(-95.288778,29.740733)  in-sample=44.56ft  LOO=54.69ft
+    H  px=(7748.0,6861.0)  lon/lat=(-95.309079,29.706389)  in-sample=49.80ft  LOO=57.29ft
+    I  px=(4104.0,1650.0)  lon/lat=(-95.381901,29.797407)  in-sample=16.00ft  LOO=18.14ft
+    J  px=(7000.0,4317.0)  lon/lat=(-95.324008,29.751097)  in-sample=97.09ft  LOO=112.98ft
+    K  px=(2720.0,3186.0)  lon/lat=(-95.409500,29.770462)  in-sample=25.45ft  LOO=28.81ft
+    M  px=(2697.0,1275.0)  lon/lat=(-95.410178,29.803802)  in-sample=22.13ft  LOO=26.32ft
+    O  px=(8054.0,4642.0)  lon/lat=(-95.302873,29.745168)  in-sample=96.66ft  LOO=112.72ft
+    P  px=(5663.0,5818.0)  lon/lat=(-95.350523,29.724795)  in-sample=30.12ft  LOO=35.57ft
+    Q  px=(1852.0,4383.0)  lon/lat=(-95.426503,29.749630)  in-sample=83.89ft  LOO=100.62ft
+    R  px=(2704.0,2045.0)  lon/lat=(-95.409894,29.790511)  in-sample=43.77ft  LOO=49.68ft
+    S  px=(2646.0,5012.0)  lon/lat=(-95.410693,29.738554)  in-sample=14.06ft  LOO=15.45ft
+    T  px=(5618.0,2464.0)  lon/lat=(-95.351427,29.783359)  in-sample=18.41ft  LOO=22.44ft
+    U  px=(8388.0,8062.0)  lon/lat=(-95.296353,29.685144)  in-sample=47.89ft  LOO=70.95ft
+    V  px=(8680.0,8053.0)  lon/lat=(-95.290363,29.685264)  in-sample=55.45ft  LOO=85.18ft
+  N01  px=(3228.0,798.0)  lon/lat=(-95.399403,29.812094)  in-sample=22.45ft  LOO=28.37ft
+  N02  px=(2696.0,1072.0)  lon/lat=(-95.410229,29.806850)  in-sample=160.93ft  LOO=197.12ft
+  N03  px=(4085.0,920.0)  lon/lat=(-95.382037,29.810560)  in-sample=182.22ft  LOO=241.16ft
+  N04  px=(1925.0,4799.0)  lon/lat=(-95.424950,29.742125)  in-sample=20.57ft  LOO=24.17ft
+  N05  px=(1848.0,4577.0)  lon/lat=(-95.426522,29.746068)  in-sample=31.07ft  LOO=37.10ft
+  N06  px=(8985.0,4320.0)  lon/lat=(-95.283543,29.750130)  in-sample=113.55ft  LOO=169.79ft
+  N07  px=(9270.0,6154.0)  lon/lat=(-95.278346,29.718153)  in-sample=45.82ft  LOO=57.36ft
+  N08  px=(5116.0,7081.0)  lon/lat=(-95.361319,29.702196)  in-sample=148.85ft  LOO=184.69ft
+  N09  px=(2245.0,5766.0)  lon/lat=(-95.418579,29.725477)  in-sample=87.41ft  LOO=102.28ft
+  N10  px=(2260.0,7366.0)  lon/lat=(-95.417863,29.696988)  in-sample=58.38ft  LOO=174.51ft
+  N11  px=(9464.0,6152.0)  lon/lat=(-95.274505,29.718206)  in-sample=20.87ft  LOO=27.52ft
+  N12  px=(5135.0,6908.0)  lon/lat=(-95.360878,29.705498)  in-sample=74.65ft  LOO=90.63ft
+
+--- Thin-plate spline (TPS) ---
+LOO is undefined for TPS (an interpolating spline has zero residual at every control point by construction). Instead: order-2-polynomial vs TPS displacement field, sampled on a grid across the zones raster extent.
+order2-vs-TPS displacement (ft) across sampled grid: mean=90.4  median=67.7  p95=248.2  max=380.1
+
+--- Convex hull coverage ---
+Fraction of the cleaned extent OUTSIDE the GCPs' convex hull (pixel space): 30.0%
+
+--- Independent check-point evaluation (held out of the fit) ---
+Check-point file: C:/Users/JSeppi/CODE/houston1947\checkpoints.csv   N checkpoints: 8
+Order 1: checkpoint RMSE (ft): 69.84   max: 118.82
+     C03  px=(4235,5095)  error=118.82 ft
+     C01  px=(9296,6993)  error=79.61 ft
+     C06  px=(2695,1160)  error=67.49 ft
+     C05  px=(1848,4445)  error=59.03 ft
+     C02  px=(3615,5001)  error=56.88 ft
+     C07  px=(2236,5270)  error=51.03 ft
+     C04  px=(3234,859)  error=49.75 ft
+     C08  px=(2237,5019)  error=47.00 ft
+Order 2: checkpoint RMSE (ft): 53.69   max: 110.17
+     C02  px=(3615,5001)  error=110.17 ft
+     C05  px=(1848,4445)  error=63.01 ft
+     C07  px=(2236,5270)  error=59.72 ft
+     C08  px=(2237,5019)  error=44.37 ft
+     C06  px=(2695,1160)  error=26.11 ft
+     C01  px=(9296,6993)  error=21.03 ft
+     C04  px=(3234,859)  error=16.31 ft
+     C03  px=(4235,5095)  error=4.81 ft
+

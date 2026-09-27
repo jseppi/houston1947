@@ -1,0 +1,241 @@
+group_dscr,landuse_dscr,acres_in_extent,is_vacant_prefix
+Single-Family Residential,Res Improved Table Value,12393.02,0
+Park & Open Spaces,Country Club ( w/Golf Course),1686.70,0
+Public & Institutional,Vacant Exempt Land,1506.54,1
+Industrial,Auxiliary Improvement,1478.05,0
+Industrial,Warehouse-Metallic,1315.39,0
+Undeveloped,General Commercial Vacant,1171.95,0
+Undeveloped,Res Vacant Table Value,948.13,0
+Public & Institutional,General Commercial Vacant,792.45,0
+Transportation & Utility,"Railroad, (ROW)",666.27,0
+Public & Institutional,School,660.72,0
+Transportation & Utility,General Commercial Vacant,629.30,0
+Multi-Family Residential,Apartment Mid Rise (4 to 12 Stories),617.59,0
+Multi-Family Residential,Apartment Garden (1 to 3 Stories),552.93,0
+Industrial,Distribution Warehouse,510.76,0
+Transportation & Utility,Vacant Exempt Land,498.14,1
+Public & Institutional,Recreational/Health,401.34,0
+Park & Open Spaces,Vacant Exempt Land,401.17,1
+Office,Office Bldgs. Low-Rise (1 to 4 Stories),396.10,0
+Industrial,Warehouse,391.50,0
+Public & Institutional,Religious,335.85,0
+Public & Institutional,College or University,305.88,0
+Park & Open Spaces,General Commercial Vacant,299.42,0
+Commercial,Commercial Imps Only Land,296.28,0
+Multi-Family Residential,Apartment Struct. 4-20 Units,283.60,0
+Office,Office Bldgs. Hi-Rise (5+ Stories),278.96,0
+Commercial,Retail Single-Occupancy,238.65,0
+Multi-Family Residential,Condo Land,233.50,0
+Commercial,Strip Shopping Center,215.89,0
+Commercial,Retail Multi-Occupancy,195.68,0
+Multi-Family Residential,Subsidized Housing,182.92,0
+Industrial,Industrial Manufacturing,166.75,0
+Single-Family Residential,Res. Struct. Or Conversion,164.07,0
+(null),(null),158.26,0
+Office,Medical Office,155.16,0
+Commercial,Parking Miscellaneous,151.00,0
+Industrial,Metal Fabricating,150.26,0
+Industrial,Office - Warehouse,145.62,0
+Commercial,Restaurant,145.25,0
+Industrial,Industrial Imps Only Land,144.65,0
+Commercial,Community Shopping Center,129.11,0
+Commercial,Neighborhood Shopping Center,127.49,0
+Industrial,Light Industrial - Metallic,126.46,0
+Commercial,Discount Department,125.18,0
+Undeveloped,"Railroad, Vacant Land",122.12,0
+Multi-Family Residential,Apartment Tax Credit Properties,117.45,0
+Single-Family Residential,Res Vacant Table Value,111.15,0
+Industrial,Industrial Improved Land,110.73,0
+Industrial,Petroleum Refining / Industry,107.97,0
+Industrial,Industrial Warehouse – Light Metallic,104.96,0
+Public & Institutional,Miscellaneous Government,104.90,0
+Commercial,Auto Service Garage,100.45,0
+Public & Institutional,Res Vacant Table Value,100.12,0
+Commercial,Possessory Interest,94.44,0
+Transportation & Utility,"Electric Company, Distribution",90.48,0
+Commercial,Parking Garage,89.94,0
+Undeveloped,Vacant Industrial Land,87.20,1
+Commercial,Service Station (Self),85.98,0
+Commercial,Fast Food,84.03,0
+Commercial,Supermarket,80.85,0
+Industrial,Maritime Shipping,78.82,0
+Office,Bank,73.12,0
+Transportation & Utility,"Utility District, Pumping",67.94,0
+Transportation & Utility,"Electric Company, Substation",67.91,0
+Park & Open Spaces,Res Open Space/Retention Land,66.94,0
+Commercial,Bar/Lounge,65.82,0
+Transportation & Utility,"Railroad, Improved Operating",63.17,0
+Commercial,Res Improved Table Value,60.61,0
+Commercial,Auto Dealer Full Service,59.27,0
+Industrial,Cold Storage Facility,59.19,0
+Undeveloped,Vacant Exempt Land,57.06,1
+Industrial,Truck Terminal,54.32,0
+Industrial,Miscellaneous Aux. Structure,51.83,0
+Industrial,Food & Kindred Products,51.23,0
+Commercial,"Hotel/Motel, Hi-Rise 4+ Stories",50.04,0
+Commercial,Conv. Mart w/Gas Pump,48.92,0
+Commercial,"Hotel/Motel, Low-Rise 1 to 3 Stories",48.71,0
+Commercial,Commercial New Construction,46.90,0
+Multi-Family Residential,Apartment High Rise (13+ Stories),44.50,0
+Public & Institutional,Hospitals,43.16,0
+Public & Institutional,Cultural Facility,42.52,0
+Industrial,Concrete Products,42.37,0
+Commercial,Commercial Bldg. - Mixed Res.,38.77,0
+Public & Institutional,UDI Vacant Land,37.00,0
+Commercial,Drugstore (Freestanding),36.53,0
+Transportation & Utility,Res Vacant Table Value,35.00,0
+Industrial,Service Center Warehouse,34.60,0
+Commercial,Retail Power Center,34.47,0
+Commercial,Social/Fraternal Hall,34.17,0
+Commercial,Medical Condominium,33.34,0
+Commercial,Day Care Center,28.77,0
+Park & Open Spaces,Res Vacant Table Value,28.18,0
+Transportation & Utility,"Utility District, Other Operating",27.55,0
+Public & Institutional,Police or Fire Station,27.53,0
+Industrial,Mini-Warehouse,27.30,0
+Multi-Family Residential,Mobile Home Park,26.64,0
+Industrial,Industrial Cold Storage,26.59,0
+Transportation & Utility,Rail/Bus/Air Terminal,26.45,0
+Undeveloped,Apartment Vacant Land,25.42,0
+Transportation & Utility,Residential Private Streets,25.16,0
+Agriculture Production,Mkt Value of NV Land,23.40,0
+Agriculture Production,Nominal Value Vacant,22.91,0
+Park & Open Spaces,Retention Pond,22.76,0
+Undeveloped,Res Vacant Override,22.52,0
+Multi-Family Residential,Apartment New Construction,22.17,0
+Industrial,Warehouse Condominium,21.88,0
+Single-Family Residential,Res Improved Override (Res. Use),21.24,0
+Commercial,Used Car Lot,21.06,0
+Single-Family Residential,Res Improved Override,20.96,0
+Industrial,Industrial Buffer Zone,20.83,0
+Multi-Family Residential,Retirement Home,20.76,0
+Industrial,Industrial Manufacturing – Heavy,20.44,0
+Industrial,Light Industrial - Non Metallic,19.98,0
+Industrial,Chemical and Allied Products,18.87,0
+Commercial,Funeral Home,17.98,0
+Commercial,General Commercial Vacant,17.63,0
+Transportation & Utility,"Electric Company, Work Center",17.09,0
+Industrial,Industrial Warehouse – Heavy – Non Metallic,16.23,0
+Commercial,Car Wash (Manual),14.23,0
+Transportation & Utility,Telephone Equipment,14.21,0
+Industrial,Rubber and Miscellaneous,12.41,0
+Commercial,Car Wash (Automatic),12.39,0
+Industrial,Miscellaneous Manufacturing,11.66,0
+Commercial,Convenience Food Market,11.43,0
+Public & Institutional,Library,11.14,0
+Undeveloped,"Gas Company, Vacant",10.72,0
+Industrial,Machinery & Transportation Equipment,10.25,0
+Multi-Family Residential,Nursing Home,10.04,0
+Commercial,Health Spa,9.97,0
+Public & Institutional,Post Office,9.97,0
+Office,Office Condominium,9.91,0
+Park & Open Spaces,Recreational/Health,9.71,0
+Commercial,Ice House,9.63,0
+Transportation & Utility,Private Streets,9.30,0
+Commercial,Retail Miscellaneous,8.88,0
+Commercial,Service Station (Full),8.59,0
+Single-Family Residential,Extended Stay Hotel/Motel,8.13,0
+Multi-Family Residential,Boarding & Rooming House,7.82,0
+Single-Family Residential,Comm. Mobile Home,7.52,0
+Commercial,Downtown ROW,7.44,0
+Commercial,Food Stand (Below Restr. Constr.),7.43,0
+Public & Institutional,Correctional,7.41,0
+Commercial,Veterinary Clinic,6.68,0
+Commercial,UDI Improved Land,6.60,0
+Commercial,Lumber Storage,6.24,0
+Industrial,Research and Development,6.01,0
+Commercial,Night Club/Dinner Theater,5.76,0
+Commercial,"Radio, TV, or Motion Picture Studio",5.04,0
+Office,Drive Through Bank,4.83,0
+Multi-Family Residential,Dormitory,4.63,0
+Undeveloped,UDI Vacant Land,4.36,0
+Commercial,Specialized Auto Use,3.90,0
+Commercial,Retail Condominium,3.88,0
+Single-Family Residential,Res Improved Table Value (Res. Use),3.86,0
+Commercial,Special Value Land,3.80,0
+Public & Institutional,Auditorium,2.74,0
+Commercial,Legitimate Theater,2.67,0
+Commercial,Boat & RV Storage,2.58,0
+Public & Institutional,Res Vacant Override,2.53,0
+Single-Family Residential,Residential Imps Only Land,2.53,0
+Office,Surgical Centers,2.39,0
+Public & Institutional,Vacant Industrial Land,2.34,1
+Industrial,Primary Metal Industry,2.25,0
+Undeveloped,"Electric Company, Vacant",2.19,0
+Industrial,Auto Salvage Yard,2.07,0
+Commercial,Bowling Alley,1.99,0
+Industrial,Industrial Miscellaneous,1.86,0
+Park & Open Spaces,Vacant Industrial Land,1.80,1
+Single-Family Residential,Medical Office,1.76,0
+Single-Family Residential,Office Bldgs. Low-Rise (1 to 4 Stories),1.70,0
+Office,Office Flex Buildings,1.43,0
+Single-Family Residential,Res Vacant Override (Res. Use),1.26,0
+Park & Open Spaces,Res Vacant Override,1.24,0
+Single-Family Residential,Res Vacant Override,1.10,0
+Single-Family Residential,Warehouse-Metallic,1.08,0
+Single-Family Residential,General Commercial Vacant,0.92,0
+Transportation & Utility,Apartment Vacant Land,0.90,0
+Single-Family Residential,Retail Single-Occupancy,0.84,0
+Transportation & Utility,Vacant Industrial Land,0.75,1
+Commercial,UDI Vacant Land,0.72,0
+Single-Family Residential,Social/Fraternal Hall,0.70,0
+Transportation & Utility,Governmental ROW Easements,0.67,0
+Commercial,Truck Stop,0.59,0
+Commercial,Greenhouse/Florist,0.57,0
+Commercial,Vacant Exempt Land,0.54,1
+Commercial,Motion Picture Theater (Widescreen),0.53,0
+Industrial,Dwelling on Industrial Land,0.53,0
+Park & Open Spaces,Club House,0.45,0
+Single-Family Residential,Apartment Mid Rise (4 to 12 Stories),0.44,0
+Agriculture Production,Nominal Value Improved,0.42,0
+Transportation & Utility,"Gas Company, Distribution",0.41,0
+Single-Family Residential,Apartment Vacant Land,0.41,0
+Park & Open Spaces,UDI Vacant Land,0.40,0
+Single-Family Residential,Parking Miscellaneous,0.40,0
+Park & Open Spaces,"Railroad, Vacant Land",0.39,0
+Single-Family Residential,Auxiliary Improvement,0.37,0
+Commercial,Apartment Struct. 4-20 Units,0.34,0
+Single-Family Residential,Vacant Exempt Land,0.28,1
+Transportation & Utility,"Pipeline, Distribution",0.27,0
+Single-Family Residential,Restaurant,0.27,0
+Single-Family Residential,Bar/Lounge,0.26,0
+Single-Family Residential,Vacant Industrial Land,0.26,1
+Single-Family Residential,Apartment Struct. 4-20 Units,0.23,0
+Undeveloped,Telephone Vacant Land,0.23,0
+Commercial,Res Improved Table Value (Res. Use),0.19,0
+Transportation & Utility,Res Vacant Override,0.16,0
+Single-Family Residential,Commercial Bldg. - Mixed Res.,0.15,0
+Single-Family Residential,Res Open Space/Retention Land,0.14,0
+Transportation & Utility,"Gas Company, Improved Operating",0.14,0
+Single-Family Residential,Res. Structure on Apartment Land,0.13,0
+Single-Family Residential,Res Vacant Table Value (Res. Use),0.13,0
+Public & Institutional,Apartment Vacant Land,0.11,0
+Commercial,Res Vacant Table Value,0.11,0
+Single-Family Residential,Day Care Center,0.07,0
+Commercial,Commercial Improved Land,0.07,0
+Commercial,Cinema/Theater (Multi-Screen),0.07,0
+Transportation & Utility,"Gas Company, Pumping",0.06,0
+Single-Family Residential,Retail Multi-Occupancy,0.05,0
+Park & Open Spaces,"Pipeline, Vacant Land",0.02,0
+Commercial,Swimming - Indoor Pool,0.00,0
+Industrial,Drill Site,0.00,0
+Commercial,Regional Shopping Mall,0.00,0
+Agriculture Production,Harris Wildlife Management,0.00,0
+Agriculture Production,Mkt Value of Ag Land,0.00,0
+Agriculture Production,Harris Hay,0.00,0
+Commercial,Skating Rink,0.00,0
+Transportation & Utility,"Utility District, Other Non-Operating",0.00,0
+Undeveloped,"Pipeline, Vacant Land",0.00,0
+Industrial,Hazardous Waste Contaminated Site,0.00,0
+Single-Family Residential,Apartment Garden (1 to 3 Stories),0.00,0
+Commercial,Res Improved Override,0.00,0
+Single-Family Residential,Religious,0.00,0
+Commercial,Department Store,0.00,0
+Agriculture Production,Harris Native Pasture,0.00,0
+Industrial,Solid Waste Disposal,0.00,0
+Industrial,Paper and Allied Products,0.00,0
+Transportation & Utility,Telephone Work Center,0.00,0
+Industrial,Lumber and Wood Products,0.00,0
+Transportation & Utility,Telephone Improved Non-Operating,0.00,0
+Single-Family Residential,UDI Improved Land,0.00,0
+Commercial,Res. Struct. Or Conversion,0.00,0

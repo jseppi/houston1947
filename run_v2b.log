@@ -1,0 +1,112 @@
+[    0.0s] loading cached gray_full
+[    0.1s] full-res street mask (bright & locally-smooth)...
+[    3.4s]   closing (bridge text-on-street gaps) + opening (remove noise)...
+C:\Users\JSeppi\CODE\houston1947\03b_classify_fullres.py:168: FutureWarning: `binary_closing` is deprecated since version 0.26 and will be removed in version 0.28. Use `skimage.morphology.closing` instead.
+  street_closed = binary_closing(street_raw, disk(STREET_CLOSE_R))
+C:\Users\JSeppi\CODE\houston1947\03b_classify_fullres.py:169: FutureWarning: `binary_opening` is deprecated since version 0.26 and will be removed in version 0.28. Use `skimage.morphology.opening` instead.
+  street = binary_opening(street_closed, disk(STREET_OPEN_R))
+C:\Users\JSeppi\CODE\houston1947\03b_classify_fullres.py:174: FutureWarning: `binary_erosion` is deprecated since version 0.26 and will be removed in version 0.28. Use `skimage.morphology.erosion` instead. Note the pixel shift by 1 for even-sized footprints (see docstring notes).
+  block_mask_eroded = binary_erosion(block_mask, disk(1))
+[   10.4s] connected components...
+[   10.8s]   1263 raw block components (pre-regrow)
+[   10.8s] regrowing labels to full block footprint...
+[   19.8s]   n_blocks=1263, largest=50860663 px2 (98.7% of block area), n_large(>60000)=1
+[   24.7s] building legend training set...
+[   24.7s] legend base patches: 540 (54 per class)
+[   25.3s] legend training samples with jitter: (2700, 38)
+[   26.4s] legend-only resubstitution accuracy: 1.0
+[   26.4s] building candidate grid...
+[   26.4s]   grid candidates: 381408, in-block: 201872
+[   26.4s] computing street fraction per candidate (integral image, vectorized)...
+[   26.5s]   keeping 185406 / 201872 patches after street-fraction filter
+[   26.5s] extracting grid patch features...
+[   36.9s]   done in 10.4s, shape (185406, 38)
+[   40.1s] round 0: predicted class counts {'A': 41850, 'B': 56382, 'C': 21668, 'D': 11026, 'E': 5802, 'F': 7647, 'G': 257, 'H': 18060, 'I': 3354, 'J': 19360}
+[   40.1s]   self-train round 0: retrain set size 20957
+[   45.7s] round 1: predicted class counts {'A': 30203, 'B': 31564, 'C': 11457, 'D': 20691, 'E': 20900, 'F': 21047, 'G': 11453, 'H': 16177, 'I': 8920, 'J': 12994}
+[   45.7s]   self-train round 1: retrain set size 22700
+[   51.5s] round 2: predicted class counts {'A': 30770, 'B': 29563, 'C': 9712, 'D': 15604, 'E': 7759, 'F': 14856, 'G': 46783, 'H': 11126, 'I': 7304, 'J': 11929}
+[   51.5s] building dense per-patch label grid (fallback for large blocks)...
+C:\Users\JSeppi\CODE\houston1947\03b_classify_fullres.py:472: FutureWarning: `square` is deprecated since version 0.25 and will be removed in version 0.27. Use `skimage.morphology.footprint_rectangle` instead.
+  grid_smoothed = majority(grid_filled, footprint=square(3))
+[   51.9s] aggregating patch predictions to blocks...
+[   51.9s] blocks total=1263, classified_with_patches=3, small_and_trustworthy=2, large(fallback_to_patch_grid)=2
+[   55.8s]   filled 1260 small patch-less blocks via nearest-neighbour
+[   55.8s] combining block-majority + dense patch-grid fallback...
+[   57.4s] wrote C:/Users/JSeppi/CODE/houston1947/zones_px_v2.tif
+[   70.1s] wrote C:/Users/JSeppi/CODE/houston1947/zones_px_v2.gpkg
+[   70.5s] wrote C:/Users/JSeppi/CODE/houston1947/zones_preview_v2.png
+[   70.7s] wrote C:/Users/JSeppi/CODE/houston1947/check_crop1_stude_park_v2.png
+[   71.0s] wrote C:/Users/JSeppi/CODE/houston1947/check_crop2_ship_channel_v2.png
+[   71.3s] wrote C:/Users/JSeppi/CODE/houston1947/check_crop3_downtown_v2.png
+[   72.3s] {
+  "scale": 2,
+  "output_size": [
+    5587,
+    4405
+  ],
+  "full_size": [
+    11173,
+    8809
+  ],
+  "geotransform": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    -2
+  ],
+  "n_blocks": 1263,
+  "n_trustworthy_blocks": 1262,
+  "n_grid_patches_used": 185406,
+  "extent_full_res_px2": 62814806,
+  "unclassified_within_extent_px2": 11276903,
+  "unclassified_within_extent_pct": 17.95261932353974,
+  "area_by_district": {
+    "A": {
+      "full_res_px2": 8856915,
+      "pct_of_extent": 14.100043547057998
+    },
+    "B": {
+      "full_res_px2": 9711227,
+      "pct_of_extent": 15.460092322819559
+    },
+    "C": {
+      "full_res_px2": 2797416,
+      "pct_of_extent": 4.453434115517288
+    },
+    "D": {
+      "full_res_px2": 3419851,
+      "pct_of_extent": 5.444339030514557
+    },
+    "E": {
+      "full_res_px2": 2067572,
+      "pct_of_extent": 3.2915360751094256
+    },
+    "F": {
+      "full_res_px2": 3872146,
+      "pct_of_extent": 6.1643842376907125
+    },
+    "G": {
+      "full_res_px2": 12503462,
+      "pct_of_extent": 19.905278382934114
+    },
+    "H": {
+      "full_res_px2": 2931739,
+      "pct_of_extent": 4.667273827129228
+    },
+    "I": {
+      "full_res_px2": 1794670,
+      "pct_of_extent": 2.8570811792366277
+    },
+    "J": {
+      "full_res_px2": 3582905,
+      "pct_of_extent": 5.703917958450751
+    }
+  }
+}
+[   72.3s] building accuracy sample...
+[   72.3s] wrote C:/Users/JSeppi/CODE/houston1947/accuracy_contact_sheet_v2.png labels order: ['A', 'A', 'A', 'A', 'A', 'A', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'C', 'C', 'C', 'C', 'C', 'D', 'D', 'D', 'D', 'D', 'D', 'E', 'E', 'E', 'E', 'E', 'E', 'F', 'F', 'F', 'F', 'F', 'F', 'G', 'G', 'G', 'G', 'G', 'G', 'H', 'H', 'H', 'H', 'H', 'H', 'I', 'I', 'I', 'I', 'I', 'I', 'J', 'J', 'J', 'J', 'J', 'J']
+[   72.3s] wrote C:/Users/JSeppi/CODE/houston1947/accuracy_sample_v2.csv
+[   72.3s] DONE

@@ -1,0 +1,30 @@
+{
+ "OA": 0.8635508115953573,
+ "OA_se": 0.021504343431327132,
+ "corrected": {
+  "Residential": {
+   "strict": 0.6035347905643647,
+   "strict_se": 0.06049651830146541,
+   "cumulative": 0.7809800071519851,
+   "cumulative_se": 0.05121662562372106,
+   "n": 79,
+   "strict_mapped": 0.6190476190476191
+  },
+  "Commercial": {
+   "strict": 0.37281813988350715,
+   "strict_se": 0.11773659059969623,
+   "cumulative": 0.8601931975436847,
+   "cumulative_se": 0.0633106846343912,
+   "n": 27,
+   "strict_mapped": 0.4807692307692308
+  },
+  "Industrial": {
+   "strict": 0.5292299102929385,
+   "strict_se": 0.06978717485127978,
+   "cumulative": 1.0,
+   "cumulative_se": 0.0,
+   "n": 60,
+   "strict_mapped": 0.5185185185185186
+  }
+ }
+}

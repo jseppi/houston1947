@@ -1,0 +1,10 @@
+extent envelope: x[3082428,3164987] y[13803489,13869268]
+requesting object ids (returnIdsOnly)...
+OBJECTIDs matched: 266542  pages(<=2000 each): 134
+25/134 pages, 50000 features so far
+50/134 pages, 100000 features so far
+75/134 pages, 150000 features so far
+100/134 pages, 200000 features so far
+125/134 pages, 250000 features so far
+134/134 pages, 266542 features so far
+DONE: 266542 features written to parcels_2026 in C:/Users/JSeppi/CODE/houston1947/houston1947.gpkg; no-geometry: 0

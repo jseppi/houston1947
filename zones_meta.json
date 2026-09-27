@@ -1,0 +1,83 @@
+{
+  "scale": 4,
+  "downsampled_size": [
+    2794,
+    2203
+  ],
+  "full_size": [
+    11173,
+    8809
+  ],
+  "geotransform": [
+    0,
+    4,
+    0,
+    0,
+    0,
+    -4
+  ],
+  "px_per_ft_full_res": 0.15166666666666667,
+  "acre_full_res_px2": 1002.001,
+  "sieve_threshold_ds_px": 31,
+  "sieve_threshold_acres": 0.5,
+  "bright_unclassified_threshold": 210.0,
+  "extent_full_res_px2": 62843808,
+  "unclassified_within_extent_full_res_px2": 9197552,
+  "unclassified_within_extent_pct": 14.635573961399666,
+  "area_by_district": {
+    "A": {
+      "full_res_px2": 43364352,
+      "pct_of_extent": 69.00338057171838
+    },
+    "B": {
+      "full_res_px2": 1712880,
+      "pct_of_extent": 2.725614590382556
+    },
+    "C": {
+      "full_res_px2": 496256,
+      "pct_of_extent": 0.7896657058082794
+    },
+    "D": {
+      "full_res_px2": 29920,
+      "pct_of_extent": 0.04761010026636196
+    },
+    "E": {
+      "full_res_px2": 16944,
+      "pct_of_extent": 0.026962083519827443
+    },
+    "F": {
+      "full_res_px2": 101200,
+      "pct_of_extent": 0.16103416266563605
+    },
+    "G": {
+      "full_res_px2": 3265216,
+      "pct_of_extent": 5.195764075913414
+    },
+    "H": {
+      "full_res_px2": 2550896,
+      "pct_of_extent": 4.059104756987355
+    },
+    "I": {
+      "full_res_px2": 727808,
+      "pct_of_extent": 1.1581220539659214
+    },
+    "J": {
+      "full_res_px2": 1380784,
+      "pct_of_extent": 2.1971679373726047
+    }
+  },
+  "feature_importances": {
+    "gray_denoised": 0.17161070172103976,
+    "norm_gray": 0.1338172370731494,
+    "mean15": 0.15424341989461102,
+    "std15": 0.03477159099662465,
+    "mean31": 0.08900821254378773,
+    "std31": 0.043076679956778836,
+    "mean61": 0.06249582709430432,
+    "std61": 0.0768886021285785,
+    "gabor0": 0.03012209141575574,
+    "gabor45": 0.03249732667664468,
+    "gabor90": 0.05519441120605598,
+    "gabor135": 0.11627389929266932
+  }
+}

@@ -1,0 +1,109 @@
+[    0.0s] reading full-res RGB from JPEG...
+[    2.4s] gray_full shape (8809, 11173)
+[    2.8s] global isolated-bright-dot mask...
+C:\Users\JSeppi\CODE\houston1947\03b_classify_fullres.py:195: FutureWarning: `binary_opening` is deprecated since version 0.26 and will be removed in version 0.28. Use `skimage.morphology.opening` instead.
+  opened = binary_opening(bright, disk(2))
+[    4.9s] half-res street mask...
+C:\Users\JSeppi\CODE\houston1947\03b_classify_fullres.py:163: FutureWarning: `binary_opening` is deprecated since version 0.26 and will be removed in version 0.28. Use `skimage.morphology.opening` instead.
+  street_half = binary_opening(bright_half, disk(3))
+C:\Users\JSeppi\CODE\houston1947\03b_classify_fullres.py:166: FutureWarning: `binary_erosion` is deprecated since version 0.26 and will be removed in version 0.28. Use `skimage.morphology.erosion` instead. Note the pixel shift by 1 for even-sized footprints (see docstring notes).
+  block_mask_eroded = binary_erosion(block_mask, disk(1))
+[    6.8s] connected components...
+[    7.0s]   1922 raw block components (pre-regrow)
+[    7.0s] regrowing labels to full block footprint...
+[    9.3s] blocks shape (4405, 5587) n components 1922
+[    9.3s] building legend training set...
+[    9.3s] legend base patches: 540 (54 per class)
+[   10.0s] legend training samples with jitter: (2700, 38)
+[   11.2s] legend-only resubstitution accuracy: 1.0
+[   11.2s] building candidate grid...
+[   11.2s]   grid candidates: 381408, in-block: 196738
+[   11.2s] extracting grid patch features (this is the slow step)...
+[   27.5s]   done in 16.3s, shape (196738, 38)
+[   27.5s] computing street/bright fraction per patch for filtering...
+[   30.0s]   keeping 32256 / 196738 patches after street-fraction filter
+[   31.2s] round 0: predicted class counts {2: 2320, 3: 1852, 4: 1860, 5: 1249, 6: 3629, 7: 161, 8: 4790, 9: 815, 10: 15580}
+[   31.2s]   self-train round 0: retrain set size 16637
+[   35.1s] round 1: predicted class counts {1: 1, 2: 8513, 3: 2477, 4: 2431, 5: 1718, 6: 4308, 7: 499, 8: 3934, 9: 961, 10: 7414}
+[   35.1s]   self-train round 1: retrain set size 17879
+[   39.2s] round 2: predicted class counts {1: 1, 2: 6373, 3: 2774, 4: 2767, 5: 4078, 6: 4525, 7: 701, 8: 3596, 9: 1446, 10: 5995}
+[   39.2s] aggregating patch predictions to blocks...
+[   39.3s] blocks total=1922, classified=3
+[   40.2s] filled 1919 blocks with no patches via nearest-neighbour
+[   40.2s] rasterizing output...
+[   40.4s] wrote C:/Users/JSeppi/CODE/houston1947/zones_px_v2.tif
+[   55.6s] wrote C:/Users/JSeppi/CODE/houston1947/zones_px_v2.gpkg
+[   56.7s] wrote C:/Users/JSeppi/CODE/houston1947/zones_preview_v2.png
+[   56.9s] wrote C:/Users/JSeppi/CODE/houston1947/check_crop1_stude_park_v2.png
+[   57.1s] wrote C:/Users/JSeppi/CODE/houston1947/check_crop2_ship_channel_v2.png
+[   57.3s] wrote C:/Users/JSeppi/CODE/houston1947/check_crop3_downtown_v2.png
+[   57.6s] {
+  "scale": 2,
+  "output_size": [
+    5587,
+    4405
+  ],
+  "full_size": [
+    11173,
+    8809
+  ],
+  "geotransform": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    -2
+  ],
+  "n_blocks": 1922,
+  "n_grid_patches_used": 32256,
+  "extent_full_res_px2": 62884812,
+  "unclassified_within_extent_px2": 12630216,
+  "unclassified_within_extent_pct": 20.08468435907863,
+  "area_by_district": {
+    "A": {
+      "full_res_px2": 0,
+      "pct_of_extent": 0.0
+    },
+    "B": {
+      "full_res_px2": 49323020,
+      "pct_of_extent": 78.4339150127379
+    },
+    "C": {
+      "full_res_px2": 0,
+      "pct_of_extent": 0.0
+    },
+    "D": {
+      "full_res_px2": 725252,
+      "pct_of_extent": 1.153302326800309
+    },
+    "E": {
+      "full_res_px2": 0,
+      "pct_of_extent": 0.0
+    },
+    "F": {
+      "full_res_px2": 0,
+      "pct_of_extent": 0.0
+    },
+    "G": {
+      "full_res_px2": 0,
+      "pct_of_extent": 0.0
+    },
+    "H": {
+      "full_res_px2": 206324,
+      "pct_of_extent": 0.32809830138317025
+    },
+    "I": {
+      "full_res_px2": 0,
+      "pct_of_extent": 0.0
+    },
+    "J": {
+      "full_res_px2": 0,
+      "pct_of_extent": 0.0
+    }
+  }
+}
+[   57.6s] building accuracy sample...
+[   57.6s] wrote C:/Users/JSeppi/CODE/houston1947/accuracy_contact_sheet_v2.png labels order: ['A', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'C', 'C', 'C', 'C', 'C', 'D', 'D', 'D', 'D', 'D', 'D', 'E', 'E', 'E', 'E', 'E', 'E', 'F', 'F', 'F', 'F', 'F', 'F', 'G', 'G', 'G', 'G', 'G', 'G', 'H', 'H', 'H', 'H', 'H', 'H', 'I', 'I', 'I', 'I', 'I', 'I', 'J', 'J', 'J', 'J', 'J', 'J']
+[   57.6s] wrote C:/Users/JSeppi/CODE/houston1947/accuracy_sample_v2.csv (judged column left blank for review)
+[   57.6s] DONE

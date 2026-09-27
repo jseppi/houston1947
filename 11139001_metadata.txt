@@ -1,0 +1,37 @@
+Author	Houston, Tex. City of Houston
+Date	1947
+Short Title	Zoning district map : Houston, Texas. December 15, 1947
+Publisher	City of Houston
+Publisher Location	Houston, Tex.
+Type	Separate Map
+Obj Height cm	86
+Obj Width cm	111
+Scale 1	19,000
+Note	Uncolored zoning map, 86x111, folded to self wrapped mailer 22.5x28. "City of Houston. Houston, Texas". Shows city blocks, streets, public buildings, parks, etc. Includes table of legend & summary of zoning regulations. Text on verso: "Proposed zoning ordinance, Houston, Texas".
+State/Province	Texas
+City	Houston (Tex.)
+Subject	Land Development
+Full Title	Zoning district map : Houston, Texas. December 15, 1947.
+List No	11139.001
+Series No	1
+Publication Author	Houston, Tex. City of Houston
+Pub Date	1947
+Pub Title	Zoning district map : Houston, Texas. December 15, 1947.
+Pub Note	See note field above.
+Pub List No	11139.000
+Pub Type	Separate Map
+Pub Height cm	23
+Pub Width cm	28
+Image No	11139001.jp2
+Download 1	<a href=https://www.davidrumsey.com/rumsey/download.pl?image=/168/11139001.jp2 target=_blank>Full Image Download in JP2 Format</a>
+Download 2	<a href="https://www.extensis.com/support/geoviewer-9" target="_blank">GeoViewer for JP2 and SID files</a>
+Authors	Houston, Tex. City of Houston
+Summary	This work is a "Zoning District Map" of Houston, Texas, dated December 15, 1947. It was produced by the City of Houston and measures 111 cm by 86 cm. The map is a separate, uncolored zoning map with a scale of 1:19,000, designed to be folded into a self-wrapped mailer. It forms part of a larger publication with a Pub List No of 11139.000.<br><br>Composition and Medium:<br>
+The map is a detailed representation of Houston's zoning districts as of 1947. It displays city blocks, streets, public buildings, parks, and other essential urban features. The medium is a traditional paper map, likely printed using lithography, given its uncolored and highly detailed nature. The map includes a table of legends and a summary of zoning regulations, which help to interpret the varying zones depicted.<br><br>Style and Features:<br>
+The style of the map is utilitarian and precise, typical of mid-20th-century urban planning documents. The cartographic style is straightforward, focusing on clarity and functionality rather than decorative elements. The map prominently displays the city's street grid, with different shading patterns used to denote various zoning districts. These patterns are crucial for distinguishing residential, commercial, industrial, and other types of land use.<br><br>Subject Matter:<br>
+The primary subject of the map is land development and zoning in Houston. It is a crucial document for understanding the city's urban planning strategy at the time. Zoning maps like this one are vital tools for city planners, developers, and policymakers, as they dictate how land can be used and developed.<br><br>Cultural and Historical Context:<br>
+The map was created in a post-World War II context when many American cities were undergoing significant growth and transformation. This period saw increased suburbanization and the development of infrastructure to support an expanding urban population. Zoning was a critical component in managing this growth, ensuring that land use was organized and efficient.<br><br>In 1947, Houston was beginning to experience rapid industrial and population growth, spurred by its booming oil industry. This map reflects the city's efforts to manage this growth through zoning regulations that would shape its development for decades. The inclusion of a proposed zoning ordinance on the verso indicates ongoing adjustments to these regulations, reflecting changing priorities and pressures.<br><br>Notable Features:<br>
+- Legend and Zoning Summary: The map includes a legend and zoning summary, providing detailed information about the different zoning categories and regulations in place at the time.
+  
+- Houston's Street Grid: The detailed depiction of the street grid highlights the city's layout, which is essential for urban planning and navigation.<br><br>- Public Buildings and Parks: These features are marked and labeled, indicating their importance to the city's infrastructure and public life.<br><br>- Rivers and Natural Features: The map outlines the city's natural features, such as rivers, which play a critical role in urban planning by influencing flood zones and land use.<br><br>Pub and List Information:<br>
+This map is part of a publication by the City of Houston, with a List No of 11139.001 and a Pub List No of 11139.000. These identifiers are useful for cataloging and referencing the map within a broader collection or series of urban planning documents.<br><br>In summary, this zoning district map is an essential artifact from Houston's urban history, providing insights into mid-20th-century city planning practices and the socio-economic factors driving urban development in that era.

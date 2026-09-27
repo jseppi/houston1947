@@ -1,0 +1,94 @@
+{
+  "started": "2026-09-27T05:18:06.310424+00:00",
+  "input_versions": {
+    "zones_px_version": "v3g",
+    "extent_px_version": "v2",
+    "vacant_as_neutral": true,
+    "dedupe_burn_order": "neutral_first",
+    "georef_order": 2,
+    "fit_in_target_crs": true
+  },
+  "input_hashes_before_run": {
+    "zones_px": {
+      "path": "C:/Users/JSeppi/CODE/houston1947\\zones_px_v3g.tif",
+      "sha256": "e0e00bbeee7996844403f02112abee7461ceb88c3db13efe669a246b913d2399"
+    },
+    "extent_px": {
+      "path": "C:/Users/JSeppi/CODE/houston1947\\extent_px_v2.tif",
+      "sha256": "15f23014df43777f51eaa7643813098c66d1ed5421b5bb87fbed1a843767964f"
+    },
+    "gcps_frozen_csv": {
+      "path": "C:/Users/JSeppi/CODE/houston1947\\gcps_frozen_v2.csv",
+      "sha256": "16b4636183bbc386ce899e7ad87732cd5347e17de8a15e7baad85cf57f351102"
+    },
+    "gcp_source_csv": {
+      "path": "C:/Users/JSeppi/CODE/houston1947_gcps.csv",
+      "sha256": "8c453373ec56c484c8c20effdd82c285dd64003b904da4fd76f92a246dc8fba1"
+    },
+    "crosswalk_json": {
+      "path": "C:/Users/JSeppi/CODE/houston1947\\crosswalk.json",
+      "sha256": "4ca13d0d31027b437688f4dda8d4380c850fb09ed70df2c708aab6c05beed910"
+    },
+    "houston1947_gpkg": {
+      "path": "C:/Users/JSeppi/CODE/houston1947\\houston1947.gpkg",
+      "sha256": "6bb979bd92b699aa119cbe620d2b23f43d5e2b68bedc96dc425d956e4724f3e5"
+    }
+  },
+  "finished": "2026-09-27T05:22:44.286128+00:00",
+  "durations_sec": {
+    "05_georef_zones.py": 134.175413,
+    "overlay (overlay_lib)": 11.598533,
+    "stats.py": 126.024059,
+    "09_compare_map.py": 6.079997
+  },
+  "input_hashes_after_run": {
+    "zones_px": {
+      "path": "C:/Users/JSeppi/CODE/houston1947\\zones_px_v3g.tif",
+      "sha256": "e0e00bbeee7996844403f02112abee7461ceb88c3db13efe669a246b913d2399"
+    },
+    "extent_px": {
+      "path": "C:/Users/JSeppi/CODE/houston1947\\extent_px_v2.tif",
+      "sha256": "15f23014df43777f51eaa7643813098c66d1ed5421b5bb87fbed1a843767964f"
+    },
+    "gcps_frozen_csv": {
+      "path": "C:/Users/JSeppi/CODE/houston1947\\gcps_frozen_v2.csv",
+      "sha256": "16b4636183bbc386ce899e7ad87732cd5347e17de8a15e7baad85cf57f351102"
+    },
+    "gcp_source_csv": {
+      "path": "C:/Users/JSeppi/CODE/houston1947_gcps.csv",
+      "sha256": "8c453373ec56c484c8c20effdd82c285dd64003b904da4fd76f92a246dc8fba1"
+    },
+    "crosswalk_json": {
+      "path": "C:/Users/JSeppi/CODE/houston1947\\crosswalk.json",
+      "sha256": "4ca13d0d31027b437688f4dda8d4380c850fb09ed70df2c708aab6c05beed910"
+    },
+    "houston1947_gpkg": {
+      "path": "C:/Users/JSeppi/CODE/houston1947\\houston1947.gpkg",
+      "sha256": "3639c7e37827b76ef78b9fce572426d29b4cd1606f5b01164346960e5d3c14cc"
+    }
+  },
+  "script_hashes": {
+    "config.py": "837159c8c8f97caad1cd18c28b631d1f7ecf925c254b787a843d1c27227ce27c",
+    "05_georef_zones.py": "078701babc2d6f297044090c22586e49722dcfc1e2d86d56033bddc2660f31ee",
+    "06_fetch_parcels.py": "141b403538aed459441c53e449b31f1c1b8b3e163ab1bd2d27c30df0db4fa5eb",
+    "overlay_lib.py": "8990b9d4b77573a3058cde966bf412b6e09220b8b88e1c24131224912ab7d802",
+    "prep_parcel_fields.py": "1324c7a46bdcae2eb95b29e1961c353e69eb72991441ce64f264378b17d06794",
+    "stats.py": "1a8f1edccb8fc7cf4f4794c0e7bb7153cf4bdd98531ad0694e38204baca732d0",
+    "09_compare_map.py": "79b1f6a2f5a5e5c39f740dfbc6259d951e119adcb8c0ac0cd80ffc32f0a17a2d",
+    "run_all.py": "eb83d775561391cb483eebfcff26fb39694c611189071850c81c76d206cdf237",
+    "crosswalk.json": "4ca13d0d31027b437688f4dda8d4380c850fb09ed70df2c708aab6c05beed910"
+  },
+  "parcel_service_url": "https://mycity2.houstontx.gov/gisweb01/rest/services/HoustonMap/Landuse/MapServer/0/query",
+  "parcel_fetch_timestamp": "2026-09-26T23:49:40.474026+00:00",
+  "parcel_fetch_timestamp_source": "fetch.log mtime",
+  "package_versions": {
+    "numpy": "1.26.4",
+    "scipy": "1.13.0",
+    "sklearn": "1.9.1",
+    "shapely": "2.0.6",
+    "osgeo.gdal": "3.10.2",
+    "matplotlib": "3.10.0",
+    "PIL": "11.1.0"
+  },
+  "python_version": "3.12.9 (main, Feb  7 2025, 14:34:44) [MSC v.1938 64 bit (AMD64)]"
+}

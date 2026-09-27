@@ -1,0 +1,14 @@
+group,denom_parcel_acres_excl_neutral,observed_strict_pct,observed_cumulative_pct,bootstrap_strict_ci_lo,bootstrap_strict_ci_hi,bootstrap_cumulative_ci_lo,bootstrap_cumulative_ci_hi,marginal_baseline_strict_pct,marginal_baseline_cumulative_pct,chance_corrected_index_strict,chance_corrected_index_cumulative,null_mean_strict_pct,null_p95_strict_pct,empirical_p_value_strict
+Residential,19397.3,57.8,79.1,54.4,60.9,77.0,81.1,45.3,62.6,0.229,0.44,46.0,51.0,0.0
+Commercial,2247.9,37.7,77.9,33.3,41.5,74.1,81.5,12.1,76.9,0.291,0.04,13.9,18.7,0.0
+Industrial,7256.6,52.1,99.9,47.3,56.9,99.9,100.0,22.9,99.9,0.379,-0.082,26.9,37.3,0.0
+district A,8018.1,52.3,82.3,,,,,,,,,,,
+district B,7208.1,68.7,80.0,,,,,,,,,,,
+district C,3129.0,56.8,76.8,,,,,,,,,,,
+district D,1042.2,28.2,54.4,,,,,,,,,,,
+district E,1430.4,41.0,85.8,,,,,,,,,,,
+district F,743.0,27.9,61.0,,,,,,,,,,,
+district G,74.6,71.8,93.5,,,,,,,,,,,
+district H,3088.4,40.0,99.8,,,,,,,,,,,
+district I,493.2,26.2,99.9,,,,,,,,,,,
+district J,3674.9,65.8,100.0,,,,,,,,,,,

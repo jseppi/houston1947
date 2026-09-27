@@ -1,0 +1,78 @@
+Loaded 32 GCPs from C:/Users/JSeppi/CODE/houston1947\gcps_frozen_v2.csv
+GCP file: C:/Users/JSeppi/CODE/houston1947\gcps_frozen_v2.csv
+N GCPs: 32
+Fit space: EPSG:2278 (pixel -> target CRS directly; matches the warp)
+
+--- Polynomial order 1 ---
+In-sample RMSE (ft): 118.19   max resid: 269.35
+Leave-one-out RMSE (ft): 133.14   LOO max: 312.45
+Worst 5 GCPs by LOO residual (id, pixel_x, pixel_y, lon, lat, in-sample_ft, LOO_ft):
+  (N06, 8985.0, 4320.0, -95.283543, 29.750130) -> in-sample 269.35 ft, LOO 312.45 ft
+  (N02, 2696.0, 1072.0, -95.410229, 29.806850) -> in-sample 231.31 ft, LOO 260.30 ft
+  (N10, 2260.0, 7366.0, -95.417863, 29.696988) -> in-sample 191.89 ft, LOO 236.81 ft
+  (N03, 4085.0, 920.0, -95.382037, 29.810560) -> in-sample 181.43 ft, LOO 207.25 ft
+  (E, 3629.0, 5852.0, -95.390947, 29.724364) -> in-sample 182.97 ft, LOO 196.13 ft
+
+--- Polynomial order 2 ---
+In-sample RMSE (ft): 75.53   max resid: 182.22
+Leave-one-out RMSE (ft): 98.46   LOO max: 241.16
+Worst 5 GCPs by LOO residual (id, pixel_x, pixel_y, lon, lat, in-sample_ft, LOO_ft):
+  (N03, 4085.0, 920.0, -95.382037, 29.810560) -> in-sample 182.22 ft, LOO 241.16 ft
+  (N02, 2696.0, 1072.0, -95.410229, 29.806850) -> in-sample 160.93 ft, LOO 197.12 ft
+...
+wrote C:/Users/JSeppi/CODE/houston1947\georef_report.txt
+wrote C:/Users/JSeppi/CODE/houston1947\zones_2278.tif
+wrote C:/Users/JSeppi/CODE/houston1947\extent_2278.tif
+wrote C:/Users/JSeppi/CODE/houston1947\zones_2278_tps.tif
+wrote extent_1947 layer in C:/Users/JSeppi/CODE/houston1947\houston1947.gpkg (area 2163416000 ft2)
+wrote zones_1947 layer in C:/Users/JSeppi/CODE/houston1947\houston1947.gpkg
+DONE
+Loading grids + burning parcels (headline configuration)...
+parcel fields already present, skipping (use force=True to rebuild)
+Marginal baseline...
+Toroidal-shift null (400 shifts)...
+Distance-decay curve...
+Spatial block bootstrap (600 reps, 2000.0 ft blocks)...
+Off-diagonal shares...
+Sensitivity table across input versions/toggles...
+parcel fields already present, skipping (use force=True to rebuild)
+parcel fields already present, skipping (use force=True to rebuild)
+parcel fields already present, skipping (use force=True to rebuild)
+parcel fields already present, skipping (use force=True to rebuild)
+parcel fields already present, skipping (use force=True to rebuild)
+parcel fields already present, skipping (use force=True to rebuild)
+parcel fields already present, skipping (use force=True to rebuild)
+wrote stats_summary.csv, stats_report.md, distance_decay.csv, distance_decay.png
+group,denom_parcel_acres_excl_neutral,observed_strict_pct,observed_cumulative_pct,bootstrap_strict_ci_lo,bootstrap_strict_ci_hi,bootstrap_cumulative_ci_lo,bootstrap_cumulative_ci_hi,marginal_baseline_strict_pct,marginal_baseline_cumulative_pct,chance_corrected_index_strict,chance_corrected_index_cumulative,null_mean_strict_pct,null_p95_strict_pct,empirical_p_value_strict
+Residential,19397.3,57.8,79.1,54.4,60.9,77.0,81.1,45.3,62.6,0.229,0.44,46.0,51.0,0.0
+Commercial,2247.9,37.7,77.9,33.3,41.5,74.1,81.5,12.1,76.9,0.291,0.04,13.9,18.7,0.0
+Industrial,7256.6,52.1,99.9,47.3,56.9,99.9,100.0,22.9,99.9,0.379,-0.082,26.9,37.3,0.0
+district A,8018.1,52.3,82.3,,,,,,,,,,,
+district B,7208.1,68.7,80.0,,,,,,,,,,,
+district C,3129.0,56.8,76.8,,,,,,,,,,,
+district D,1042.2,28.2,54.4,,,,,,,,,,,
+district E,1430.4,41.0,85.8,,,,,,,,,,,
+district F,743.0,27.9,61.0,,,,,,,,,,,
+district G,74.6,71.8,93.5,,,,,,,,,,,
+district H,3088.4,40.0,99.8,,,,,,,,,,,
+district I,493.2,26.2,99.9,,,,,,,,,,,
+district J,3674.9,65.8,100.0,,,,,,,,,,,
+
+parcel fields already present, skipping (use force=True to rebuild)
+(3654, 1520)
+
+=== running: 05_georef_zones.py ===
+=== finished 05_georef_zones.py in 134.2s, exit 0 ===
+parcel fields already present, skipping (use force=True to rebuild)
+
+=== running: stats.py ===
+=== finished stats.py in 126.0s, exit 0 ===
+
+=== running: 09_compare_map.py ===
+=== finished 09_compare_map.py in 6.1s, exit 0 ===
+
+wrote run_manifest.json
+
+real	4m41.319s
+user	0m0.015s
+sys	0m0.015s

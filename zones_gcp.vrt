@@ -1,0 +1,51 @@
+<VRTDataset rasterXSize="5587" rasterYSize="4405">
+  <Metadata domain="IMAGE_STRUCTURE">
+    <MDI key="INTERLEAVE">BAND</MDI>
+    <MDI key="COMPRESSION">DEFLATE</MDI>
+  </Metadata>
+  <GCPList Projection="PROJCS[&quot;NAD83 / Texas South Central (ftUS)&quot;,GEOGCS[&quot;NAD83&quot;,DATUM[&quot;North_American_Datum_1983&quot;,SPHEROID[&quot;GRS 1980&quot;,6378137,298.257222101,AUTHORITY[&quot;EPSG&quot;,&quot;7019&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6269&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4269&quot;]],PROJECTION[&quot;Lambert_Conformal_Conic_2SP&quot;],PARAMETER[&quot;latitude_of_origin&quot;,27.8333333333333],PARAMETER[&quot;central_meridian&quot;,-99],PARAMETER[&quot;standard_parallel_1&quot;,30.2833333333333],PARAMETER[&quot;standard_parallel_2&quot;,28.3833333333333],PARAMETER[&quot;false_easting&quot;,1968500],PARAMETER[&quot;false_northing&quot;,13123333.333],UNIT[&quot;US survey foot&quot;,0.304800609601219,AUTHORITY[&quot;EPSG&quot;,&quot;9003&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;2278&quot;]]" dataAxisToSRSAxisMapping="1,2">
+    <GCP Id="" Pixel="2534.0000" Line="1901.0000" X="3.122405827257E+06" Y="1.384181405653E+07" />
+    <GCP Id="" Pixel="1665.0000" Line="1618.5000" X="3.111288721181E+06" Y="1.384495668283E+07" />
+    <GCP Id="" Pixel="1120.0000" Line="2394.5000" X="3.104765884949E+06" Y="1.383484999714E+07" />
+    <GCP Id="" Pixel="2134.0000" Line="2477.5000" X="3.117549288078E+06" Y="1.383432571753E+07" />
+    <GCP Id="" Pixel="1814.5000" Line="2926.0000" X="3.113798890197E+06" Y="1.382859708238E+07" />
+    <GCP Id="" Pixel="1651.5000" Line="631.5000" X="3.110637356122E+06" Y="1.385746131466E+07" />
+    <GCP Id="" Pixel="4367.5000" Line="2440.0000" X="3.146021405256E+06" Y="1.383556100805E+07" />
+    <GCP Id="" Pixel="3874.0000" Line="3430.5000" X="3.139976529436E+06" Y="1.382287503183E+07" />
+    <GCP Id="" Pixel="2052.0000" Line="825.0000" X="3.115846971448E+06" Y="1.385523392795E+07" />
+    <GCP Id="" Pixel="3500.0000" Line="2158.5000" X="3.134728884210E+06" Y="1.383897484815E+07" />
+    <GCP Id="" Pixel="1360.0000" Line="1593.0000" X="3.107398381214E+06" Y="1.384517079462E+07" />
+    <GCP Id="" Pixel="1348.5000" Line="637.5000" X="3.106811293595E+06" Y="1.385728229609E+07" />
+    <GCP Id="" Pixel="4027.0000" Line="2321.0000" X="3.141500026447E+06" Y="1.383703120114E+07" />
+    <GCP Id="" Pixel="2831.5000" Line="2909.0000" X="3.126617959208E+06" Y="1.382915176036E+07" />
+    <GCP Id="" Pixel="926.0000" Line="2191.5000" X="3.102238327273E+06" Y="1.383743373764E+07" />
+    <GCP Id="" Pixel="1352.0000" Line="1022.5000" X="3.107049698370E+06" Y="1.385245420605E+07" />
+    <GCP Id="" Pixel="1323.0000" Line="2506.0000" X="3.107376199339E+06" Y="1.383356174290E+07" />
+    <GCP Id="" Pixel="2809.0000" Line="1232.0000" X="3.125666694867E+06" Y="1.385042842637E+07" />
+    <GCP Id="" Pixel="4194.0000" Line="4031.0000" X="3.144258835715E+06" Y="1.381528115604E+07" />
+    <GCP Id="" Pixel="4340.0000" Line="4026.5000" X="3.146158494636E+06" Y="1.381538500731E+07" />
+    <GCP Id="" Pixel="1614.0000" Line="399.0000" X="3.110134146033E+06" Y="1.386040106806E+07" />
+    <GCP Id="" Pixel="1348.0000" Line="536.0000" X="3.106761177767E+06" Y="1.385838950997E+07" />
+    <GCP Id="" Pixel="2042.5000" Line="460.0000" X="3.115655843318E+06" Y="1.386001344425E+07" />
+    <GCP Id="" Pixel="962.5000" Line="2399.5000" X="3.102814226154E+06" Y="1.383472110570E+07" />
+    <GCP Id="" Pixel="924.0000" Line="2288.5000" X="3.102271804980E+06" Y="1.383613900027E+07" />
+    <GCP Id="" Pixel="4492.5000" Line="2160.0000" X="3.147573355836E+06" Y="1.383902921014E+07" />
+    <GCP Id="" Pixel="4635.0000" Line="3077.0000" X="3.149591574171E+06" Y="1.382745964664E+07" />
+    <GCP Id="" Pixel="2558.0000" Line="3540.5000" X="3.123448663410E+06" Y="1.382083136235E+07" />
+    <GCP Id="" Pixel="1122.5000" Line="2883.0000" X="3.105020378140E+06" Y="1.382873203609E+07" />
+    <GCP Id="" Pixel="1130.0000" Line="3683.0000" X="3.105564772799E+06" Y="1.381838438334E+07" />
+    <GCP Id="" Pixel="4732.0000" Line="3076.0000" X="3.150809514032E+06" Y="1.382751772121E+07" />
+    <GCP Id="" Pixel="2567.5000" Line="3454.0000" X="3.123551238525E+06" Y="1.382203584230E+07" />
+  </GCPList>
+  <VRTRasterBand dataType="Byte" band="1" blockXSize="5587" blockYSize="1">
+    <NoDataValue>0</NoDataValue>
+    <ColorInterp>Gray</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">zones_px_v3g.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="5587" RasterYSize="4405" DataType="Byte" BlockXSize="5587" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="5587" ySize="4405" />
+      <DstRect xOff="0" yOff="0" xSize="5587" ySize="4405" />
+    </SimpleSource>
+  </VRTRasterBand>
+</VRTDataset>

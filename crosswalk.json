@@ -1,0 +1,41 @@
+{
+  "_note": "1947 district -> 2026 GROUP_DSCR sets. Undeveloped/Unknown are reported separately (excluded from denominator).",
+  "neutral": ["Undeveloped", "Unknown"],
+  "districts": {
+    "A": {"name": "First Dwelling", "group": "Residential",
+          "strict": ["Single-Family Residential"],
+          "cumulative": ["Single-Family Residential", "Public & Institutional", "Park & Open Spaces"]},
+    "B": {"name": "Second Dwelling", "group": "Residential",
+          "strict": ["Single-Family Residential", "Multi-Family Residential"],
+          "cumulative": ["Single-Family Residential", "Multi-Family Residential", "Public & Institutional", "Park & Open Spaces"]},
+    "C": {"name": "First Apartment", "group": "Residential",
+          "strict": ["Single-Family Residential", "Multi-Family Residential"],
+          "cumulative": ["Single-Family Residential", "Multi-Family Residential", "Public & Institutional", "Park & Open Spaces"]},
+    "D": {"name": "Second Apartment", "group": "Residential",
+          "strict": ["Single-Family Residential", "Multi-Family Residential"],
+          "cumulative": ["Single-Family Residential", "Multi-Family Residential", "Public & Institutional", "Park & Open Spaces", "Commercial"]},
+    "E": {"name": "Local Business", "group": "Commercial",
+          "strict": ["Commercial", "Office"],
+          "cumulative": ["Commercial", "Office", "Single-Family Residential", "Multi-Family Residential", "Public & Institutional", "Park & Open Spaces"]},
+    "F": {"name": "Intermediate Business", "group": "Commercial",
+          "strict": ["Commercial", "Office"],
+          "cumulative": ["Commercial", "Office", "Single-Family Residential", "Multi-Family Residential", "Public & Institutional", "Park & Open Spaces"]},
+    "G": {"name": "Central Business", "group": "Commercial",
+          "strict": ["Commercial", "Office"],
+          "cumulative": ["Commercial", "Office", "Single-Family Residential", "Multi-Family Residential", "Public & Institutional", "Park & Open Spaces"]},
+    "H": {"name": "First Light Industrial", "group": "Industrial",
+          "strict": ["Industrial", "Transportation & Utility"],
+          "cumulative": ["Industrial", "Transportation & Utility", "Commercial", "Office", "Single-Family Residential", "Multi-Family Residential", "Public & Institutional", "Park & Open Spaces"]},
+    "I": {"name": "Second Light Industrial", "group": "Industrial",
+          "strict": ["Industrial", "Transportation & Utility"],
+          "cumulative": ["Industrial", "Transportation & Utility", "Commercial", "Office", "Single-Family Residential", "Multi-Family Residential", "Public & Institutional", "Park & Open Spaces"]},
+    "J": {"name": "Heavy Industrial", "group": "Industrial",
+          "strict": ["Industrial", "Transportation & Utility"],
+          "cumulative": ["Industrial", "Transportation & Utility", "Commercial", "Office", "Single-Family Residential", "Multi-Family Residential", "Public & Institutional", "Park & Open Spaces", "Agriculture Production"]}
+  },
+  "legend_swatch_px": {
+    "_note": "verified swatch centres (interior, avoiding cell borders) in 11139001.jpg, derived from grid-line detection on legend.png (crop origin 9340,3480; symbol column grid at rel x=136-211, center rel x=173; row grid lines at rel y=40,110,177,246,314,383,451,519,588,657(interp),725)",
+    "A": [9513, 3555], "B": [9513, 3624], "C": [9513, 3692], "D": [9513, 3760], "E": [9513, 3829],
+    "F": [9513, 3897], "G": [9513, 3965], "H": [9513, 4034], "I": [9513, 4103], "J": [9513, 4171]
+  }
+}

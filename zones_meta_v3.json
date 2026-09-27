@@ -1,0 +1,141 @@
+{
+  "scale": 2,
+  "output_size": [
+    5587,
+    4405
+  ],
+  "full_size": [
+    11173,
+    8809
+  ],
+  "geotransform": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    -2
+  ],
+  "reused_extent": "extent_px.tif (v1, same as v2 -- intentionally NOT v2b)",
+  "reused_blocks_cache": "cache_v2/blocks_v2.npz (same block segmentation as v2)",
+  "g_rule_thresholds_seed": {
+    "window_px": 15,
+    "local_mean_lt": 95.0,
+    "local_std_lt": 20.0,
+    "bright_threshold": 150.0,
+    "bright_frac_lt": 0.03,
+    "open_radius_px": 2,
+    "close_radius_px": 3,
+    "min_region_px2": 500,
+    "block_override_frac": 0.5,
+    "large_block_px2_cutoff": 60000
+  },
+  "g_rule_thresholds_grow_round2": {
+    "window_px": 7,
+    "local_mean_lt": 120.0,
+    "local_std_lt": 35.0,
+    "bright_threshold": 150.0,
+    "bright_frac_lt": 0.08,
+    "max_geodesic_steps_px": 40,
+    "method": "8-connected geodesic dilation from round-1 seeds, one ring per step, intersected each step with the relaxed mask AND block_mask AND extent -- growth halts wherever any pixel along the path fails the relaxed test, even if block_mask itself failed to detect a real street there (see docstring)"
+  },
+  "n_blocks": 1221,
+  "n_small_blocks_overridden_to_G": 0,
+  "px2_overridden_to_G_total": 99269,
+  "px2_overridden_to_G_via_block_majority": 0,
+  "px2_overridden_to_G_via_pixel_region_seed": 38319,
+  "px2_round1_seed_total": 38319,
+  "px2_round2_grown_new": 60950,
+  "extent_full_res_px2": 62814806,
+  "area_by_district_v2_before_px2": {
+    "A": 12726964,
+    "B": 13043572,
+    "C": 5519236,
+    "D": 2881516,
+    "E": 2563620,
+    "F": 1903156,
+    "G": 23988,
+    "H": 5623148,
+    "I": 1295048,
+    "J": 6275220
+  },
+  "area_by_district_v3_after_px2": {
+    "A": 12726964,
+    "B": 13038324,
+    "C": 5519236,
+    "D": 2830660,
+    "E": 2563588,
+    "F": 1888992,
+    "G": 123208,
+    "H": 5621812,
+    "I": 1288248,
+    "J": 6254436
+  },
+  "area_by_district_delta_px2": {
+    "A": 0,
+    "B": -5248,
+    "C": 0,
+    "D": -50856,
+    "E": -32,
+    "F": -14164,
+    "G": 99220,
+    "H": -1336,
+    "I": -6800,
+    "J": -20784
+  },
+  "area_by_district_v3_after_pct_of_extent": {
+    "A": 20.261089399846274,
+    "B": 20.75676871468806,
+    "C": 8.786520808485822,
+    "D": 4.5063579436988155,
+    "E": 4.0811842991284575,
+    "F": 3.0072400446480723,
+    "G": 0.19614483884579695,
+    "H": 8.949819888005385,
+    "I": 2.0508667972324868,
+    "J": 9.956945501033626
+  },
+  "note_before_after_comparison": "before/after computed at the SAME half-res (SCALE=2) grid both sides, i.e. from zones_px_v2.tif and our own out_half, *4 to approximate full-res px2 -- NOT from 03b's full-res-precision area report (reproduced below for reference under 'area_by_district_v2_official_fullres_px2'), since upsampling the half-res v2 raster back to full res to compare directly against our full-res out_full introduces a large spurious quantization delta unrelated to the G fix.",
+  "area_by_district_v2_official_fullres_px2": {
+    "A": {
+      "full_res_px2": 12686958,
+      "pct_of_extent": 20.197400593738998
+    },
+    "B": {
+      "full_res_px2": 13005673,
+      "pct_of_extent": 20.704788931450334
+    },
+    "C": {
+      "full_res_px2": 5508702,
+      "pct_of_extent": 8.76975087688721
+    },
+    "D": {
+      "full_res_px2": 2821416,
+      "pct_of_extent": 4.491641668048771
+    },
+    "E": {
+      "full_res_px2": 2549080,
+      "pct_of_extent": 4.0580878336231745
+    },
+    "F": {
+      "full_res_px2": 1872488,
+      "pct_of_extent": 2.9809659843572547
+    },
+    "G": {
+      "full_res_px2": 23123,
+      "pct_of_extent": 0.03681138488272972
+    },
+    "H": {
+      "full_res_px2": 5607760,
+      "pct_of_extent": 8.927449365998202
+    },
+    "I": {
+      "full_res_px2": 1280360,
+      "pct_of_extent": 2.0383092483004726
+    },
+    "J": {
+      "full_res_px2": 6182343,
+      "pct_of_extent": 9.842174789173113
+    }
+  }
+}

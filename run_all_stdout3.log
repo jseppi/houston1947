@@ -1,0 +1,74 @@
+Loaded 20 GCPs from C:/Users/JSeppi/CODE/houston1947\gcps_frozen.csv
+GCP file: C:/Users/JSeppi/CODE/houston1947\gcps_frozen.csv
+N GCPs: 20
+Fit space: EPSG:2278 (pixel -> target CRS directly; matches the warp)
+
+--- Polynomial order 1 ---
+In-sample RMSE (ft): 86.11   max resid: 179.48
+Leave-one-out RMSE (ft): 104.80   LOO max: 230.78
+Worst 5 GCPs by LOO residual (id, pixel_x, pixel_y, lon, lat, in-sample_ft, LOO_ft):
+  (G, 8735.0, 4880.0, -95.288778, 29.740733) -> in-sample 179.48 ft, LOO 230.78 ft
+  (E, 3629.0, 5852.0, -95.390947, 29.724364) -> in-sample 154.00 ft, LOO 183.48 ft
+  (U, 8388.0, 8062.0, -95.296353, 29.685144) -> in-sample 112.39 ft, LOO 147.80 ft
+  (J, 7000.0, 4317.0, -95.324008, 29.751097) -> in-sample 110.78 ft, LOO 124.82 ft
+  (V, 8680.0, 8053.0, -95.290363, 29.685264) -> in-sample 92.38 ft, LOO 122.69 ft
+
+--- Polynomial order 2 ---
+In-sample RMSE (ft): 48.78   max resid: 76.96
+Leave-one-out RMSE (ft): 74.14   LOO max: 157.63
+Worst 5 GCPs by LOO residual (id, pixel_x, pixel_y, lon, lat, in-sample_ft, LOO_ft):
+  (G, 8735.0, 4880.0, -95.288778, 29.740733) -> in-sample 73.06 ft, LOO 157.63 ft
+  (E, 3629.0, 5852.0, -95.390947, 29.724364) -> in-sample 76.96 ft, LOO 125.63 ft
+...
+wrote C:/Users/JSeppi/CODE/houston1947\georef_report.txt
+wrote C:/Users/JSeppi/CODE/houston1947\zones_2278.tif
+wrote C:/Users/JSeppi/CODE/houston1947\extent_2278.tif
+wrote C:/Users/JSeppi/CODE/houston1947\zones_2278_tps.tif
+wrote extent_1947 layer in C:/Users/JSeppi/CODE/houston1947\houston1947.gpkg (area 2159091200 ft2)
+wrote zones_1947 layer in C:/Users/JSeppi/CODE/houston1947\houston1947.gpkg
+DONE
+Loading grids + burning parcels (headline configuration)...
+parcel fields already present, skipping (use force=True to rebuild)
+Marginal baseline...
+Toroidal-shift null (400 shifts)...
+Distance-decay curve...
+Spatial block bootstrap (600 reps, 2000.0 ft blocks)...
+Off-diagonal shares...
+Sensitivity table across input versions/toggles...
+parcel fields already present, skipping (use force=True to rebuild)
+parcel fields already present, skipping (use force=True to rebuild)
+parcel fields already present, skipping (use force=True to rebuild)
+parcel fields already present, skipping (use force=True to rebuild)
+parcel fields already present, skipping (use force=True to rebuild)
+parcel fields already present, skipping (use force=True to rebuild)
+parcel fields already present, skipping (use force=True to rebuild)
+wrote stats_summary.csv, stats_report.md, distance_decay.csv, distance_decay.png
+group,denom_parcel_acres_excl_neutral,observed_strict_pct,observed_cumulative_pct,bootstrap_strict_ci_lo,bootstrap_strict_ci_hi,bootstrap_cumulative_ci_lo,bootstrap_cumulative_ci_hi,marginal_baseline_strict_pct,marginal_baseline_cumulative_pct,chance_corrected_index_strict,chance_corrected_index_cumulative,null_mean_strict_pct,null_p95_strict_pct,empirical_p_value_strict
+Residential,19290.9,58.0,79.2,38.1,42.4,53.2,56.9,45.2,62.5,0.234,0.445,45.7,50.1,0.0
+Commercial,2213.7,38.3,77.8,21.6,27.4,47.4,52.2,12.1,76.8,0.298,0.041,13.6,18.2,0.0
+Industrial,7122.1,53.0,99.9,34.1,42.4,70.3,74.4,23.0,99.9,0.39,-0.049,27.1,37.8,0.0
+district A,7962.8,52.5,82.4,,,,,,,,,,,
+district B,7197.2,68.8,80.1,,,,,,,,,,,
+district C,3113.5,56.9,77.0,,,,,,,,,,,
+district D,1017.5,27.6,53.8,,,,,,,,,,,
+district E,1401.9,41.9,85.7,,,,,,,,,,,
+district F,739.4,28.2,61.3,,,,,,,,,,,
+district G,72.4,72.3,93.2,,,,,,,,,,,
+district H,3067.9,40.3,99.8,,,,,,,,,,,
+district I,492.1,25.7,99.9,,,,,,,,,,,
+district J,3562.1,67.7,100.0,,,,,,,,,,,
+
+parcel fields already present, skipping (use force=True to rebuild)
+(3652, 1521)
+
+=== running: 05_georef_zones.py ===
+=== finished 05_georef_zones.py in 136.5s, exit 0 ===
+parcel fields already present, skipping (use force=True to rebuild)
+
+=== running: stats.py ===
+=== finished stats.py in 557.1s, exit 0 ===
+
+=== running: 09_compare_map.py ===
+=== finished 09_compare_map.py in 60.2s, exit 0 ===
+
+wrote run_manifest.json

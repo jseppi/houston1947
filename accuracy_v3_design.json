@@ -1,0 +1,11 @@
+{
+ "strata_pixels_halfres": {
+  "R": 8250413,
+  "C": 1039526,
+  "I": 3163229
+ },
+ "n_per_stratum": 90,
+ "seed": 31415,
+ "zones": "zones_px_v3g.tif",
+ "extent": "extent_px_v2.tif"
+}

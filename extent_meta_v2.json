@@ -1,0 +1,73 @@
+{
+  "scale": 8,
+  "downsampled_size": [
+    1397,
+    1102
+  ],
+  "full_size": [
+    11173,
+    8809
+  ],
+  "geotransform": [
+    0,
+    8,
+    0,
+    0,
+    0,
+    -8
+  ],
+  "pixel_convention": "map_x = col*SCALE (full-res col units); map_y = -row*SCALE",
+  "title_box_full_px": [
+    9350,
+    1800,
+    11100,
+    2500
+  ],
+  "legend_box_full_px": [
+    9300,
+    3450,
+    11120,
+    4250
+  ],
+  "neatline_detection": {
+    "method": "row/col darkness-fraction (gray<180) profile near each page edge, walked inward past the mat-board band to the inner edge of the printed neatline bump; see module docstring",
+    "dark_threshold": 180,
+    "frac_threshold": 0.1,
+    "sustain_samples": 15,
+    "margin_full_px": 15,
+    "detail_full_px": {
+      "top": {
+        "outer_px": 184,
+        "inner_px": 201
+      },
+      "bottom": {
+        "outer_px": 8634,
+        "inner_px": 8613
+      },
+      "left": {
+        "outer_px": 168,
+        "inner_px": 210
+      },
+      "right": {
+        "outer_px": 11003,
+        "inner_px": 10966
+      }
+    },
+    "final_bounds_full_px": {
+      "top": 216,
+      "bottom": 8598,
+      "left": 225,
+      "right": 10951
+    }
+  },
+  "opening_radius_ft": 250.0,
+  "opening_radius_full_px": 37.91666666666667,
+  "opening_radius_ds_px": 5,
+  "px_per_ft_full": 0.15166666666666667,
+  "extent_pixel_count_ds": 838062,
+  "extent_area_full_px2": 53635968,
+  "extent_area_acres": 53528.85675762799,
+  "extent_area_full_px2_v1_for_comparison": 62881728,
+  "extent_area_full_px2_delta_v2_minus_v1": -9245760,
+  "no_classifier_output_used": true
+}

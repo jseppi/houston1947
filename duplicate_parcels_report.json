@@ -1,0 +1,7 @@
+{
+  "n_parcels": 266542,
+  "n_duplicate_clusters": 923,
+  "n_parcels_in_duplicate_clusters": 25505,
+  "approx_acres_in_duplicate_clusters_double_counted": 91237.8,
+  "note": "acres above sum each duplicate member's own area (i.e. double/multi counted at the geometry level prior to dedupe); after dedupe the burn uses a single winning group_dscr per stacked-identical cluster."
+}
