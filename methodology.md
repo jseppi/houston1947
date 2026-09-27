@@ -56,9 +56,23 @@ uses.
 
 ### 2.2 2026 land use
 
-**Source:** parcel polygons and attributes from the City of Houston *Land Use* map service
-(`gisweb01/rest/services/HoustonMap/Landuse/MapServer/0`), derived from Harris County Appraisal District (HCAD) records
-for tax year 2026. The native coordinate system is NAD83 Texas South Central, US survey feet (EPSG:2278).
+**Source:** Harris County Appraisal District (HCAD) tax-year 2026 appraisal land-use codes, as grouped by the City of
+Houston (Enterprise GIS; layer "Land Use (Grouped)": *"Land Use derived by City of Houston staff based on appraisal
+district land use codes"*). They were served through the City's *Land Use* map service
+(`https://mycity2.houstontx.gov/gisweb01/rest/services/HoustonMap/Landuse/MapServer/0`). The native coordinate
+system is NAD83 Texas South Central, US survey feet (EPSG:2278).
+
+**Reference date:** Texas appraisal districts value property as of 1 January of the tax year. The land-use codes
+therefore describe each parcel as recorded by HCAD for valuation on 1 January 2026. They are administrative records,
+not a field survey, and may lag recent changes on the ground.
+
+**Coverage check:** the service mixes counties and years:
+- Harris County parcels are tax year 2026;
+- Montgomery County parcels are tax year 2025;
+- Fort Bend and Waller parcels carry no tax year and no land-use group.
+
+The study area lies wholly within Harris County. Of the 313,197 parcels intersecting its bounding box, 313,137 are
+tax year 2026; the other 60 (0.02%) have no tax year.
 
 **Retrieval:** we retrieved every parcel intersecting the 1947 study area buffered by 3,000 ft, so that later
 refinements of the registration remained covered. This gave 266,542 parcels, retrieved 26 September 2026 through the
@@ -464,6 +478,14 @@ exempt land is treated.
 
 **Reference labels and sample:** `accuracy_v3_judged.txt` (labels), `accuracy_v3_sample.csv` (sample), `rater_repeat_*`
 (repeatability data).
+
+## Data sources
+
+City of Houston (1947). *Zoning district map: Houston, Texas. December 15, 1947* [map, 1:19,000]. Scan: David Rumsey Map Collection, David Rumsey Map Center, Stanford Libraries, list no. 11139.001 (CC BY-NC-SA).
+
+City of Houston, Enterprise GIS (2026). *Land Use (Grouped)*, HoustonMap/Landuse map service, derived from Harris County Appraisal District tax-year 2026 appraisal land-use codes (valuation date 1 January 2026). https://mycity2.houstontx.gov/gisweb01/rest/services/HoustonMap/Landuse/MapServer/0 (retrieved 26 September 2026).
+
+OpenStreetMap contributors (2026). Street centreline geometries used for ground control points. https://www.openstreetmap.org (ODbL).
 
 ## References
 

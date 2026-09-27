@@ -1,7 +1,8 @@
 # How much of Houston's 1947 zoning plan was "implemented"? (final, post-review)
 
 This compares the Dec 15 1947 *Zoning District Map, Houston, Texas* with 2026 parcel land use, within the 1947 map's
-mapped area (≈53,500 ac). The plan was never adopted, so "implemented" means *de facto correspondence*.
+mapped area (≈53,500 ac). The 2026 land use is Harris County Appraisal District tax-year 2026 land-use codes
+(valuation date 1 January 2026), as grouped by the City of Houston and retrieved 26 September 2026. The plan was never adopted, so "implemented" means *de facto correspondence*.
 The full method is in `methodology.md`.
 
 ## Headline: share of 1947-zoned parcel land whose 2026 use matches the plan

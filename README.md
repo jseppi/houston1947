@@ -56,6 +56,7 @@ and extent layers alone are in `houston1947_zones.gpkg`.
   - Rumsey collection images are distributed under a Creative Commons Attribution-NonCommercial-ShareAlike licence
     (CC BY-NC-SA). The scan, and the images and rasters derived from it in this repository, are shared on those terms.
     Check the collection's current terms before reuse.
-- **2026 land use:** City of Houston, *HoustonMap/Landuse* map service (from Harris County Appraisal District data),
-  retrieved 26 September 2026.
+- **2026 land use:** Harris County Appraisal District (HCAD) tax-year 2026 appraisal land-use codes (valuation date
+  1 January 2026), as grouped by the City of Houston (Enterprise GIS) in its *Land Use (Grouped)* map service
+  (https://mycity2.houstontx.gov/gisweb01/rest/services/HoustonMap/Landuse/MapServer/0), retrieved 26 September 2026.
 - **Ground control:** street centrelines © OpenStreetMap contributors (ODbL).
