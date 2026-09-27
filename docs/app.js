@@ -310,6 +310,55 @@
     window.addEventListener('resize', () => scroller.resize());
   }
 
+  // ---------------------------------------------------------------- scan vs classification swipe
+
+  function initDecodeSwipe() {
+    const beforeMap = new maplibregl.Map({
+      container: 'map-decode-before',
+      ...initialView(),
+      style: buildStyle(currentDark(), ['scan'], { scan: 1 }),
+      attributionControl: false
+    });
+    const afterMap = new maplibregl.Map({
+      container: 'map-decode-after',
+      ...initialView(),
+      style: buildStyle(currentDark(), ['zones1947'], { zones1947: 1 }),
+      attributionControl: false
+    });
+    afterMap.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
+    beforeMap.once('style.load', () => {
+      if (typeof maplibregl.Compare === 'function') {
+        const compare = new maplibregl.Compare(beforeMap, afterMap, '#compare-decode', {});
+        makeSwipeHandleKeyboardAccessible(compare, 'compare-decode', 'Swipe comparison handle: 1947 scan versus automatic classification');
+      }
+    });
+    themeListeners.push((dark) => {
+      beforeMap.setStyle(buildStyle(dark, ['scan'], { scan: 1 }));
+      afterMap.setStyle(buildStyle(dark, ['zones1947'], { zones1947: 1 }));
+    });
+    document.querySelectorAll('#decode-section .flyto-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const center = [parseFloat(btn.dataset.lon), parseFloat(btn.dataset.lat)];
+        const zoom = parseFloat(btn.dataset.zoom);
+        beforeMap.flyTo({ center, zoom, essential: true, duration: reduceMotion ? 0 : 1200 });
+        afterMap.flyTo({ center, zoom, essential: true, duration: reduceMotion ? 0 : 1200 });
+      });
+    });
+    buildDistrictLegend(document.getElementById('legend-decode-left'), true);
+    buildDistrictLegend(document.getElementById('legend-decode-right'), false);
+  }
+
+  // Two more WebGL maps are costly, so only create them when the section is about to scroll into view.
+  function initDecodeSwipeLazily() {
+    const section = document.getElementById('decode-section');
+    if (!section) return;
+    if (!('IntersectionObserver' in window)) { initDecodeSwipe(); return; }
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) { io.disconnect(); initDecodeSwipe(); }
+    }, { rootMargin: '600px 0px' });
+    io.observe(section);
+  }
+
   // ---------------------------------------------------------------- swipe compare
 
   function initSwipe() {
@@ -342,7 +391,7 @@
       fit();
       if (typeof maplibregl.Compare === 'function') {
         compare = new maplibregl.Compare(beforeMap, afterMap, '#compare-container', {});
-        makeSwipeHandleKeyboardAccessible(compare);
+        makeSwipeHandleKeyboardAccessible(compare, 'compare-container', 'Swipe comparison handle: 1947 plan versus 2026 land use');
       }
     });
 
@@ -364,7 +413,7 @@
     });
     updateSwipeLegends(scanToggle.checked);
 
-    document.querySelectorAll('.flyto-btn').forEach((btn) => {
+    document.querySelectorAll('#swipe-section .flyto-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         const center = [parseFloat(btn.dataset.lon), parseFloat(btn.dataset.lat)];
         const zoom = parseFloat(btn.dataset.zoom);
@@ -372,17 +421,15 @@
         afterMap.flyTo({ center, zoom, essential: true, duration: reduceMotion ? 0 : 1200 });
       });
     });
-
-    updateSwipeLegends(false);
   }
 
-  function makeSwipeHandleKeyboardAccessible(compare) {
-    const container = document.getElementById('compare-container');
+  function makeSwipeHandleKeyboardAccessible(compare, containerId, label) {
+    const container = document.getElementById(containerId);
     const handle = container.querySelector('.compare-swiper-vertical, .compare-swiper-horizontal');
     if (!handle) return;
     handle.setAttribute('tabindex', '0');
     handle.setAttribute('role', 'slider');
-    handle.setAttribute('aria-label', 'Swipe comparison handle: 1947 plan versus 2026 land use');
+    handle.setAttribute('aria-label', label);
     handle.setAttribute('aria-valuemin', '0');
     handle.setAttribute('aria-valuenow', String(Math.round(compare.currentPosition || 0)));
     handle.addEventListener('keydown', (e) => {
@@ -407,7 +454,15 @@
     const right = document.getElementById('legend-swipe-right');
     left.innerHTML = '';
     right.innerHTML = '';
-    // Left map: the 1947 districts A–J, grouped. With the scan showing, each entry is the
+    buildDistrictLegend(left, showScan);
+    const luNames = App.palette.lu2026 && Object.keys(App.palette.lu2026).length
+      ? Object.keys(App.palette.lu2026)
+      : ['Single-Family Residential', 'Multi-Family Residential', 'Commercial', 'Office', 'Industrial', 'Public & Institutional', 'Transportation & Utility', 'Park & Open Spaces'];
+    luNames.forEach((name) => right.appendChild(legendDot(luColor(name), name)));
+  }
+
+  function buildDistrictLegend(el, showPatterns) {
+    // The 1947 districts A–J, grouped. With the scan showing, each entry is the
     // printed screen pattern cropped from the map's own legend; otherwise the colour used
     // for that district on the classified layer.
     const names = (App.lookup && App.lookup.zone_names) || {};
@@ -415,11 +470,11 @@
       const label = document.createElement('div');
       label.className = 'legend__group-label';
       label.textContent = g;
-      left.appendChild(label);
+      el.appendChild(label);
       const codes = g === 'Residential' ? 'ABCD' : g === 'Commercial' ? 'EFG' : 'HIJ';
       codes.split('').forEach((code) => {
         const text = `${code} · ${names[code] || ''}`;
-        if (!showScan) { left.appendChild(legendDot(zoneColor(code), text)); return; }
+        if (!showPatterns) { el.appendChild(legendDot(zoneColor(code), text)); return; }
         const item = document.createElement('span');
         item.className = 'legend__item';
         const img = document.createElement('img');
@@ -430,13 +485,9 @@
         span.textContent = text;
         item.appendChild(img);
         item.appendChild(span);
-        left.appendChild(item);
+        el.appendChild(item);
       });
     });
-    const luNames = App.palette.lu2026 && Object.keys(App.palette.lu2026).length
-      ? Object.keys(App.palette.lu2026)
-      : ['Single-Family Residential', 'Multi-Family Residential', 'Commercial', 'Office', 'Industrial', 'Public & Institutional', 'Transportation & Utility', 'Park & Open Spaces'];
-    luNames.forEach((name) => right.appendChild(legendDot(luColor(name), name)));
   }
 
   function legendDot(color, label) {
@@ -961,6 +1012,7 @@
     const heroMap = initHeroMap();
     const scrollyMap = initScrollyMap();
     initScrollytelling(scrollyMap);
+    initDecodeSwipeLazily();
     initSwipe();
     initAgreeMap();
 

@@ -83,6 +83,35 @@
   </div>
 </div>
 
+<!-- ============ SCAN VS CLASSIFICATION ============ -->
+<section class="full-bleed" id="decode-section" aria-label="1947 scan compared with its automatic classification">
+  <div class="section-heading">
+    <h2>Check our reading of the 1947 map</h2>
+    <p>Left: the original 1947 map. Right: the districts our classifier read from its printed patterns. Drag the handle
+    to see how well they line up. The reading is right for about 86% of the area at the Residential / Commercial /
+    Industrial level. It is weakest on the business districts, where dense crosshatches are often confused with the
+    hatches of apartment and light-industrial districts.</p>
+  </div>
+  <div class="swipe-controls">
+    <div class="flyto-row" role="group" aria-label="Fly to neighborhood">
+      <span class="flyto-row__label">Jump to:</span>
+      <button type="button" class="flyto-btn" data-lon="-95.3625" data-lat="29.7600" data-zoom="15">Downtown</button>
+      <button type="button" class="flyto-btn" data-lon="-95.285" data-lat="29.735" data-zoom="14">Ship Channel</button>
+      <button type="button" class="flyto-btn" data-lon="-95.398" data-lat="29.790" data-zoom="15">Houston Heights</button>
+      <button type="button" class="flyto-btn" data-lon="-95.415" data-lat="29.753" data-zoom="15">River Oaks</button>
+      <button type="button" class="flyto-btn" data-lon="-95.360" data-lat="29.725" data-zoom="15">Third Ward</button>
+    </div>
+  </div>
+  <div id="compare-decode" class="compare-container">
+    <div id="map-decode-before" class="map-pane"></div>
+    <div id="map-decode-after" class="map-pane"></div>
+  </div>
+  <div class="swipe-legends">
+    <div id="legend-decode-left" class="legend legend--inline" aria-label="Left map legend: 1947 printed patterns"></div>
+    <div id="legend-decode-right" class="legend legend--inline" aria-label="Right map legend: classified districts"></div>
+  </div>
+</section>
+
 <!-- ============ SWIPE SECTION ============ -->
 <section class="full-bleed" id="swipe-section" aria-label="Interactive swipe comparison">
   <div class="section-heading">
