@@ -164,10 +164,13 @@ a { color: var(--link); }
 .flyto-btn:hover, .toggle-btn:hover { border-color: var(--focus-ring); }
 .swipe-legends { display: flex; justify-content: space-between; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
 
-.maplibregl-compare .compare-swiper-vertical,
-.maplibregl-compare .compare-swiper-horizontal {
-  width: 40px; height: 40px; border-radius: 50%;
-  background: var(--card-bg); border: 2px solid var(--focus-ring);
+/* 44px handle centred on the 2px divider: the plugin's own offsets assume a 60px handle
+   (left:-30px, margin-top:-30px), so they are reset for this size. Only background-color and
+   -size are set so the plugin's white left/right arrow icon (background-image) is kept. */
+.maplibregl-compare .compare-swiper-vertical {
+  width: 44px; height: 44px; left: -21px; margin: -22px 0 0;
+  background-color: var(--focus-ring); background-size: 100% 100%;
+  box-shadow: inset 0 0 0 2px #fff, 0 1px 6px rgba(0, 0, 0, 0.35);
   cursor: ew-resize;
 }
 .maplibregl-compare .compare-swiper-vertical:focus-visible,

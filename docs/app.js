@@ -308,7 +308,9 @@
   // ---------------------------------------------------------------- swipe compare
 
   function initSwipe() {
-    const stateBefore = { zones1947: 1, scan: 0 };
+    // Start from the checkbox's actual state (browsers may restore it on reload).
+    const scanOn = document.getElementById('swipe-scan-toggle').checked;
+    const stateBefore = { zones1947: scanOn ? 0 : 1, scan: scanOn ? 1 : 0 };
     const stateAfter = { lu2026: 1 };
     const beforeMap = new maplibregl.Map({
       container: 'map-before',
@@ -355,6 +357,7 @@
       if (beforeMap.getLayer('layer-zones1947')) beforeMap.setPaintProperty('layer-zones1947', 'raster-opacity', stateBefore.zones1947);
       updateSwipeLegends(scanToggle.checked);
     });
+    updateSwipeLegends(scanToggle.checked);
 
     document.querySelectorAll('.flyto-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
