@@ -175,15 +175,20 @@
     // The basemap style ships its own default camera; drop it so it can't override
     // each map's initial view (fitBounds / fly-to) or reset the view on theme change.
     delete style.center; delete style.zoom; delete style.bearing; delete style.pitch;
-    overlayKinds.forEach((kind) => {
+    // Insert the data overlays just below the basemap's first label (symbol) layer, so
+    // labels draw fully on top with their halos instead of peeking through gaps.
+    let insertAt = style.layers.findIndex((l) => l.type === 'symbol');
+    if (insertAt < 0) insertAt = style.layers.length;
+    const overlays = overlayKinds.map((kind) => {
       style.sources[kind] = overlaySource(kind);
-      style.layers.push({
+      return {
         id: 'layer-' + kind,
         type: 'raster',
         source: kind,
         paint: { 'raster-opacity': overlayState[kind] != null ? overlayState[kind] : 0, 'raster-fade-duration': 0 }
-      });
+      };
     });
+    style.layers.splice(insertAt, 0, ...overlays);
     return style;
   }
 
