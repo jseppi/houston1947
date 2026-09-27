@@ -9,3 +9,12 @@ __pycache__/
 houston1947.gpkg
 
 *.aux.xml
+
+# web tiles are hosted as PMTiles on Cloudflare R2, not committed to the repo;
+# MBTiles intermediates never belong in the repo either (10_web_layers.py).
+docs/tiles/
+web_build/
+
+# local preview config for the Claude desktop app
+.claude/
+.wrangler/

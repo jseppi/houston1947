@@ -1,0 +1,40 @@
+{
+ "lu2026": {
+  "Single-Family Residential": "#F2D16B",
+  "Multi-Family Residential": "#E89A3C",
+  "Commercial": "#C1443B",
+  "Office": "#E58FB0",
+  "Industrial": "#60398D",
+  "Public & Institutional": "#3E7CB1",
+  "Transportation & Utility": "#A48BC0",
+  "Park & Open Spaces": "#4E9A5B",
+  "Undeveloped": "#C9C4B8",
+  "Agriculture Production": "#B7C98A",
+  "Unknown": "#DDDDDD"
+ },
+ "zones1947": {
+  "A": "#F7E39A",
+  "B": "#F2D16B",
+  "C": "#EDB54F",
+  "D": "#E89A3C",
+  "E": "#E3786E",
+  "F": "#C1443B",
+  "G": "#9E2A2B",
+  "H": "#B79FDE",
+  "I": "#A47DD6",
+  "J": "#60398D"
+ },
+ "agree": {
+  "strict": "#1B9E8F",
+  "cumulative": "#9ED8CE",
+  "mismatch": "#D95F02",
+  "neutral": "#BDBDBD"
+ },
+ "groups": {
+  "Residential": "#C2860A",
+  "Commercial": "#C1443B",
+  "Industrial": "#603A99",
+  "Public/Park": "#3E7CB1",
+  "Neutral": "#B0B0B0"
+ }
+}

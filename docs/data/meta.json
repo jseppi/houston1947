@@ -1,0 +1,45 @@
+{
+ "scan_bounds": [
+  -95.459711,
+  29.674521,
+  -95.24213,
+  29.822274
+ ],
+ "extent_bounds": [
+  -95.458893,
+  29.675544,
+  -95.244543,
+  29.822309
+ ],
+ "center": [
+  -95.351718,
+  29.748926
+ ],
+ "tiles": {
+  "scan": {
+   "file": "scan.pmtiles",
+   "format": "webp",
+   "minzoom": 10,
+   "maxzoom": 16
+  },
+  "zones1947": {
+   "file": "zones1947.pmtiles",
+   "format": "png",
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  "lu2026": {
+   "file": "lu2026.pmtiles",
+   "format": "png",
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  "agree": {
+   "file": "agree.pmtiles",
+   "format": "png",
+   "minzoom": 10,
+   "maxzoom": 15
+  }
+ },
+ "generated": "2026-09-27T15:05:34+00:00"
+}

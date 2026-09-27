@@ -1,0 +1,51 @@
+Palette CVD/lightness validation (dataviz skill's scripts/validate_palette.js)
+================================================================================
+
+Trigger: orchestrator flagged that the original palette failed a color-vision
+check -- groups.Commercial #D6453D vs groups.Industrial #7B4FA0 measured at
+deltaE 5.4 under deuteranopia simulation (needs >=8, floor 6), and
+groups.Residential #E8B04A was judged too pale.
+
+Revised colors (final, shipped in palette.json / 10_web_layers.py):
+  groups:     Residential #C2860A, Commercial #C1443B, Industrial #603A99,
+              Public/Park #3E7CB1, Neutral #B0B0B0
+  lu2026:     Commercial #C1443B, Industrial #60398D (all other lu2026 entries unchanged)
+  zones1947:  F #C1443B, H #B79FDE, I #A47DD6, J #60398D (A-E, G unchanged)
+  agree:      unchanged (orchestrator confirmed teal/vermilion pair is fine)
+
+--- groups set, --mode light --pairs all -----------------------------------
+$ node scripts/validate_palette.js "#C2860A,#C1443B,#603A99,#3E7CB1,#B0B0B0" --mode light --pairs all
+  [PASS] Lightness band         all 5 inside L 0.43-0.77
+  [FAIL] Chroma floor           below floor (reads gray): [["#B0B0B0",0]]
+  [PASS] CVD separation         worst all-pairs #C1443B<->#C2860A dE 11.3 (deutan) . tritan 13.6
+  [PASS] Normal-vision floor    worst all-pairs #C1443B<->#C2860A dE 16.4 (normal)
+  [WARN] Contrast vs surface    below 3:1 -- relief required: [["#B0B0B0",2.11]]
+  -> chroma-floor FAIL and contrast WARN both come from the Neutral gray swatch,
+     which is intentionally achromatic (same convention as an agree/diverging
+     midpoint gray) -- see note below. All CVD/lightness checks that matter for
+     the four hue-coded categories PASS.
+
+--- lu2026 Commercial vs Industrial, --mode light --pairs all ---------------
+$ node scripts/validate_palette.js "#C1443B,#60398D" --mode light --pairs all
+  ALL CHECKS PASS -- worst pair dE 23.8 (normal), 18.7 (protan/deutan)
+
+--- zones1947 F vs I vs J, --mode light --pairs all -------------------------
+$ node scripts/validate_palette.js "#C1443B,#A47DD6,#60398D" --mode light --pairs all
+  ALL CHECKS PASS -- worst pair (I<->J) dE 18.7 (protan), 21.3 (tritan), 22.5 (normal)
+
+Notes
+-----
+- Neutral gray (#B0B0B0 groups / #BDBDBD agree) fails the categorical chroma
+  floor (C>=0.10) by design -- an achromatic gray for "no encoded hue / neutral"
+  is the same convention the dataviz skill itself allows for a diverging scale's
+  neutral midpoint. It is always paired with a text label (legend / sankey node
+  / tooltip), which is the skill's own mitigation for a WARN-band swatch.
+- zones1947 A-D (residential) and E/G (commercial) were left close to their
+  original shades on purpose: they are an intra-family ordinal ramp (progressively
+  denser residential / business districts), not independent categorical
+  identities, so the skill's "don't fix a good ordinal ramp to satisfy the
+  categorical validator" guidance applies. The orchestrator's specific ask --
+  separate commercial from industrial, F vs I/J -- is what was validated above.
+- Dark-mode variant was not requested (only --mode light) and wasn't validated;
+  the map tiles bake these colors as static pixels regardless of the page's own
+  light/dark theme toggle (which only affects basemap/UI chrome).

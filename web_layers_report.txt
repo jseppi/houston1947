@@ -1,0 +1,39 @@
+wrote docs/data/palette.json
+note: overlay_lib.burn_parcels() already redirects vacant parcels (and any null/Undeveloped/Unknown group, per config.VACANT_AS_NEUTRAL) into the 'Undeveloped' LU slot (LU index 9) -- no separate vacant color is needed, it uses palette.lu2026.Undeveloped.
+
+Loading grids + burning parcels...
+
+=== Layer: scan.pmtiles (skipped -- not in --layers, reusing existing file) ===
+scan.pmtiles (unchanged): min_zoom=10 max_zoom=16 tile_type=WEBP  size=60.2 MB
+
+=== Layer: zones1947.pmtiles (skipped -- not in --layers, reusing existing file) ===
+zones1947.pmtiles (unchanged): min_zoom=10 max_zoom=15 tile_type=PNG  size=1.7 MB
+
+=== Layer: lu2026.pmtiles (skipped -- not in --layers, reusing existing file) ===
+lu2026.pmtiles (unchanged): min_zoom=10 max_zoom=15 tile_type=PNG  size=3.9 MB
+
+=== Layer: agree.pmtiles (skipped -- not in --layers, reusing existing file) ===
+agree.pmtiles (unchanged): min_zoom=10 max_zoom=15 tile_type=PNG  size=3.7 MB
+
+docs/tiles/*.pmtiles total: 69.5 MB
+extent.geojson: 82.2 KB, bounds lon/lat = [-95.45889,29.67554,-95.24454,29.82231]
+
+=== lookup.json ===
+lookup grid: nx=820 ny=641 cell=30.0m  x0=-10626747.3 y0=3480968.9
+lookup.json: 1.40 MB
+
+=== legend swatches ===
+wrote 10 legend swatch PNGs to C:\Users\JSeppi\CODE\houston1947\docs\data\legend_swatches
+
+=== results.json ===
+results.json written (7314 bytes)
+cross-check vs stats_report.md OK (Residential/Commercial/Industrial strict %% match)
+wrote docs/data/meta.json: {'scan_bounds': [-95.459711, 29.674521, -95.24213, 29.822274], 'extent_bounds': [-95.458893, 29.675544, -95.244543, 29.822309], 'center': [-95.351718, 29.748926], 'tiles': {'scan': {'file': 'scan.pmtiles', 'format': 'webp', 'minzoom': 10, 'maxzoom': 16}, 'zones1947': {'file': 'zones1947.pmtiles', 'format': 'png', 'minzoom': 10, 'maxzoom': 15}, 'lu2026': {'file': 'lu2026.pmtiles', 'format': 'png', 'minzoom': 10, 'maxzoom': 15}, 'agree': {'file': 'agree.pmtiles', 'format': 'png', 'minzoom': 10, 'maxzoom': 15}}, 'generated': '2026-09-27T15:05:34+00:00'}
+
+=== SUMMARY ===
+scan.pmtiles          z10-16  webp      60.16 MB
+zones1947.pmtiles     z10-15  png        1.67 MB
+lu2026.pmtiles        z10-15  png        3.92 MB
+agree.pmtiles         z10-15  png        3.73 MB
+TOTAL                                       69.48 MB
+lookup.json size: 1.40 MB

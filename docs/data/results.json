@@ -1,0 +1,398 @@
+{
+ "groups": [
+  {
+   "group": "Residential",
+   "denom_acres": 19397.3,
+   "strict": 57.8,
+   "strict_lo": 54.4,
+   "strict_hi": 60.9,
+   "cumulative": 79.1,
+   "cum_lo": 77.0,
+   "cum_hi": 81.1,
+   "baseline": 45.3,
+   "baseline_cum": 62.6,
+   "index": 0.229,
+   "null_mean": 46.0,
+   "null_p95": 51.0,
+   "corrected": 60.4,
+   "corrected_lo": 48.5,
+   "corrected_hi": 72.2,
+   "corrected_cum": 78.1
+  },
+  {
+   "group": "Commercial",
+   "denom_acres": 2247.9,
+   "strict": 37.7,
+   "strict_lo": 33.3,
+   "strict_hi": 41.5,
+   "cumulative": 77.9,
+   "cum_lo": 74.1,
+   "cum_hi": 81.5,
+   "baseline": 12.1,
+   "baseline_cum": 76.9,
+   "index": 0.291,
+   "null_mean": 13.9,
+   "null_p95": 18.7,
+   "corrected": 37.3,
+   "corrected_lo": 14.2,
+   "corrected_hi": 60.4,
+   "corrected_cum": 86.0
+  },
+  {
+   "group": "Industrial",
+   "denom_acres": 7256.6,
+   "strict": 52.1,
+   "strict_lo": 47.3,
+   "strict_hi": 56.9,
+   "cumulative": 99.9,
+   "cum_lo": 99.9,
+   "cum_hi": 100.0,
+   "baseline": 22.9,
+   "baseline_cum": 99.9,
+   "index": 0.379,
+   "null_mean": 26.9,
+   "null_p95": 37.3,
+   "corrected": 52.9,
+   "corrected_lo": 39.2,
+   "corrected_hi": 66.6,
+   "corrected_cum": 100.0
+  }
+ ],
+ "districts": [
+  {
+   "code": "A",
+   "name": "First Dwelling",
+   "group": "Residential",
+   "strict": 52.3,
+   "cumulative": 82.3,
+   "acres": 8018.1
+  },
+  {
+   "code": "B",
+   "name": "Second Dwelling",
+   "group": "Residential",
+   "strict": 68.7,
+   "cumulative": 80.0,
+   "acres": 7208.1
+  },
+  {
+   "code": "C",
+   "name": "First Apartment",
+   "group": "Residential",
+   "strict": 56.8,
+   "cumulative": 76.8,
+   "acres": 3129.0
+  },
+  {
+   "code": "D",
+   "name": "Second Apartment",
+   "group": "Residential",
+   "strict": 28.2,
+   "cumulative": 54.4,
+   "acres": 1042.2
+  },
+  {
+   "code": "E",
+   "name": "Local Business",
+   "group": "Commercial",
+   "strict": 41.0,
+   "cumulative": 85.8,
+   "acres": 1430.4
+  },
+  {
+   "code": "F",
+   "name": "Intermediate Business",
+   "group": "Commercial",
+   "strict": 27.9,
+   "cumulative": 61.0,
+   "acres": 743.0
+  },
+  {
+   "code": "G",
+   "name": "Central Business",
+   "group": "Commercial",
+   "strict": 71.8,
+   "cumulative": 93.5,
+   "acres": 74.6
+  },
+  {
+   "code": "H",
+   "name": "First Light Industrial",
+   "group": "Industrial",
+   "strict": 40.0,
+   "cumulative": 99.8,
+   "acres": 3088.4
+  },
+  {
+   "code": "I",
+   "name": "Second Light Industrial",
+   "group": "Industrial",
+   "strict": 26.2,
+   "cumulative": 99.9,
+   "acres": 493.2
+  },
+  {
+   "code": "J",
+   "name": "Heavy Industrial",
+   "group": "Industrial",
+   "strict": 65.8,
+   "cumulative": 100.0,
+   "acres": 3674.9
+  }
+ ],
+ "flows": [
+  {
+   "from": "Residential",
+   "to": "Residential",
+   "acres": 11586.7
+  },
+  {
+   "from": "Residential",
+   "to": "Commercial",
+   "acres": 1468.0
+  },
+  {
+   "from": "Residential",
+   "to": "Industrial",
+   "acres": 2343.3
+  },
+  {
+   "from": "Residential",
+   "to": "Public/Park",
+   "acres": 3978.4
+  },
+  {
+   "from": "Residential",
+   "to": "Neutral",
+   "acres": 2721.2
+  },
+  {
+   "from": "Commercial",
+   "to": "Residential",
+   "acres": 688.9
+  },
+  {
+   "from": "Commercial",
+   "to": "Commercial",
+   "acres": 847.5
+  },
+  {
+   "from": "Commercial",
+   "to": "Industrial",
+   "acres": 494.7
+  },
+  {
+   "from": "Commercial",
+   "to": "Public/Park",
+   "acres": 213.6
+  },
+  {
+   "from": "Commercial",
+   "to": "Neutral",
+   "acres": 347.7
+  },
+  {
+   "from": "Industrial",
+   "to": "Residential",
+   "acres": 1621.8
+  },
+  {
+   "from": "Industrial",
+   "to": "Commercial",
+   "acres": 1190.9
+  },
+  {
+   "from": "Industrial",
+   "to": "Industrial",
+   "acres": 3782.1
+  },
+  {
+   "from": "Industrial",
+   "to": "Public/Park",
+   "acres": 641.7
+  },
+  {
+   "from": "Industrial",
+   "to": "Neutral",
+   "acres": 1719.1
+  }
+ ],
+ "decay": [
+  {
+   "shift_ft": 0.0,
+   "Residential": 57.8,
+   "Commercial": 37.7,
+   "Industrial": 52.1
+  },
+  {
+   "shift_ft": 250.0,
+   "Residential": 56.8,
+   "Commercial": 32.8,
+   "Industrial": 51.1
+  },
+  {
+   "shift_ft": 500.0,
+   "Residential": 55.2,
+   "Commercial": 27.3,
+   "Industrial": 48.9
+  },
+  {
+   "shift_ft": 750.0,
+   "Residential": 53.8,
+   "Commercial": 24.0,
+   "Industrial": 46.9
+  },
+  {
+   "shift_ft": 1000.0,
+   "Residential": 52.7,
+   "Commercial": 22.2,
+   "Industrial": 45.1
+  },
+  {
+   "shift_ft": 1250.0,
+   "Residential": 51.9,
+   "Commercial": 21.5,
+   "Industrial": 43.6
+  },
+  {
+   "shift_ft": 1500.0,
+   "Residential": 51.3,
+   "Commercial": 20.5,
+   "Industrial": 42.2
+  },
+  {
+   "shift_ft": 1750.0,
+   "Residential": 50.7,
+   "Commercial": 19.7,
+   "Industrial": 40.9
+  },
+  {
+   "shift_ft": 2000.0,
+   "Residential": 50.2,
+   "Commercial": 18.7,
+   "Industrial": 39.8
+  },
+  {
+   "shift_ft": 2250.0,
+   "Residential": 49.9,
+   "Commercial": 18.0,
+   "Industrial": 39.0
+  },
+  {
+   "shift_ft": 2500.0,
+   "Residential": 49.5,
+   "Commercial": 17.8,
+   "Industrial": 38.1
+  },
+  {
+   "shift_ft": 2750.0,
+   "Residential": 49.3,
+   "Commercial": 17.3,
+   "Industrial": 37.2
+  },
+  {
+   "shift_ft": 3000.0,
+   "Residential": 49.0,
+   "Commercial": 17.0,
+   "Industrial": 36.1
+  }
+ ],
+ "accuracy": {
+  "overall": 86.4,
+  "overall_ci": [
+   82.1,
+   90.6
+  ],
+  "groups": [
+   {
+    "group": "Residential",
+    "users": 92.2,
+    "users_ci": [
+     86.6,
+     97.8
+    ],
+    "producers": 92.5,
+    "producers_ci": [
+     90.0,
+     95.0
+    ]
+   },
+   {
+    "group": "Commercial",
+    "users": 42.2,
+    "users_ci": [
+     31.9,
+     52.5
+    ],
+    "producers": 66.8,
+    "producers_ci": [
+     39.7,
+     93.9
+    ]
+   },
+   {
+    "group": "Industrial",
+    "users": 85.6,
+    "users_ci": [
+     78.3,
+     92.9
+    ],
+    "producers": 83.9,
+    "producers_ci": [
+     75.5,
+     92.3
+    ]
+   }
+  ]
+ },
+ "sensitivity": [
+  {
+   "variant": "headline (zones v3g, extent v2, vacant=neutral, dedupe neutral_first)",
+   "Residential": 57.8,
+   "Commercial": 37.7,
+   "Industrial": 52.1
+  },
+  {
+   "variant": "vacant NOT treated as neutral",
+   "Residential": 53.9,
+   "Commercial": 36.1,
+   "Industrial": 50.7
+  },
+  {
+   "variant": "dedupe burn order reversed (neutral_last)",
+   "Residential": 57.8,
+   "Commercial": 37.5,
+   "Industrial": 52.6
+  },
+  {
+   "variant": "TPS warp instead of order-2 polynomial",
+   "Residential": 57.8,
+   "Commercial": 38.4,
+   "Industrial": 52.3
+  },
+  {
+   "variant": "zones v2 (zones_px_v2.tif, same GCPs/order-2 registration)",
+   "Residential": 57.7,
+   "Commercial": 36.6,
+   "Industrial": 52.1
+  },
+  {
+   "variant": "zones v3 (zones_px_v3.tif, same GCPs/order-2 registration)",
+   "Residential": 57.8,
+   "Commercial": 37.4,
+   "Industrial": 52.1
+  },
+  {
+   "variant": "zones v3g (zones_px_v3g.tif, same GCPs/order-2 registration)",
+   "Residential": 57.8,
+   "Commercial": 37.7,
+   "Industrial": 52.1
+  },
+  {
+   "variant": "v1 vs v2 extent extraction",
+   "Residential": null,
+   "Commercial": null,
+   "Industrial": null
+  }
+ ]
+}

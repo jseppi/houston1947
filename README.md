@@ -4,6 +4,7 @@ How much of Houston's never-adopted **Zoning District Map of 15 December 1947** 
 This repository digitises the 1947 map automatically from a scan, georeferences it, overlays 2026 parcel land use,
 and measures the agreement with confidence intervals, spatial null models and a design-based accuracy assessment.
 
+- **Interactive story page:** https://jseppi.github.io/houston1947/ (source in [`docs/`](docs/))
 - **Results:** [`results.md`](results.md)
 - **Full method (conference-paper style):** [`methodology.md`](methodology.md)
 
@@ -25,6 +26,11 @@ and measures the agreement with confidence intervals, spatial null models and a 
 | Overlay, statistics | `overlay_lib.py`, `stats.py` | `stats_report.md`, `stats_summary.csv`, `distance_decay.*` |
 | Map accuracy, corrected estimates | `accuracy_v3.py` | `accuracy_v3_report.md` |
 | Figure | `09_compare_map.py` | `compare_1947_2026.png` |
+
+**Web map.** `10_web_layers.py` builds four PMTiles archives: the scan, the 1947 districts, 2026 land use, and
+agreement. It also writes the page's data files to `docs/data/`. The archives are hosted on Cloudflare R2 rather than
+committed. `deploy/r2_setup.sh` creates the bucket, sets CORS and uploads them. The page itself is plain static
+HTML/JS in `docs/`, served by GitHub Pages; the basemap is OpenFreeMap.
 
 `run_all.py` runs georeferencing → overlay → statistics → figure and writes `run_manifest.json`, which records input
 hashes and package versions. Paths and parameters are in `config.py`. Earlier superseded versions are kept for the

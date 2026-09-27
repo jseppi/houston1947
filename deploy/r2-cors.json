@@ -1,0 +1,13 @@
+{
+  "rules": [
+    {
+      "allowed": {
+        "origins": ["https://jseppi.github.io", "http://localhost:8347", "http://127.0.0.1:8347"],
+        "methods": ["GET", "HEAD"],
+        "headers": ["range", "if-match"]
+      },
+      "exposeHeaders": ["etag"],
+      "maxAgeSeconds": 3000
+    }
+  ]
+}

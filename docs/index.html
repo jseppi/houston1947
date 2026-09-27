@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Houston's 1947 Zoning Plan, Then and Now</title>
+<meta name="description" content="How much of Houston's never-adopted 1947 zoning plan matches 2026 land use, mapped and measured.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@maplibre/maplibre-gl-compare@0.5.0/dist/maplibre-gl-compare.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="auto" data-palette="">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <span class="site-header__brand">Houston 1947</span>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+      <span aria-hidden="true">&#9788;</span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero" aria-label="Introduction">
+  <div id="map" class="map-pane" role="img" aria-label="Map of Houston showing the 1947 zoning map scan over a modern basemap"></div>
+  <div class="hero__scrim"></div>
+  <div class="hero__content">
+    <h1>Houston's 1947 Zoning Plan, Then and Now</h1>
+    <p class="hero__subtitle">Houston never adopted zoning. Comparing the city's 1947 plan to 2026 land use, more than half of the land it zoned for homes and for industry is used that way today, and business districts match three times as often as chance would predict.</p>
+    <p class="hero__scroll-hint">Scroll to explore &darr;</p>
+  </div>
+</section>
+
+<!-- ============ SCROLLY SECTION 1: steps 2-4 ============ -->
+<div class="scrolly" id="scrolly-1">
+  <div class="scrolly__sticky">
+    <div id="map2" class="map-pane"></div>
+  </div>
+  <div class="scrolly__steps">
+
+    <section class="step" data-step="plan">
+      <div class="step__card">
+        <h2>The plan</h2>
+        <p>On 15 December 1947, the City of Houston published a <em>Zoning District Map</em> laying out ten cumulative
+        districts, A through J &mdash; from First Dwelling to Heavy Industrial. Each district permitted every use
+        allowed in the districts before it, plus more.</p>
+        <p><strong>Houston never adopted this plan.</strong> Voters have rejected zoning multiple times since, and the
+        city remains the largest in the United States without a conventional zoning ordinance.</p>
+        <div id="legend-plan" class="legend legend--swatches" aria-label="1947 district legend"></div>
+      </div>
+    </section>
+
+    <section class="step" data-step="decode">
+      <div class="step__card">
+        <h2>Decoding the map</h2>
+        <p>The districts are marked only by printed screen patterns &mdash; stipples, hatches, crosshatches &mdash;
+        not color. We classified every part of the scan automatically, matching each patch's texture to one of the
+        ten legend patterns with a random-forest classifier.</p>
+        <p>Checked against an independent, blind visual reading of 270 sample points, the automatic classification
+        is correct for <strong id="accuracy-inline">&hellip;</strong> of the mapped area at the
+        Residential&nbsp;/&nbsp;Commercial&nbsp;/&nbsp;Industrial group level.</p>
+      </div>
+    </section>
+
+    <section class="step" data-step="today">
+      <div class="step__card">
+        <h2>Houston today</h2>
+        <p>To compare, we use 2026 parcel-level land use from the Harris County Appraisal District: what is actually
+        built on the ground now, categorized as single- and multi-family residential, commercial, office, industrial,
+        public and institutional, park, and more.</p>
+        <div id="legend-lu2026" class="legend legend--dots" aria-label="2026 land use legend"></div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- ============ SWIPE SECTION ============ -->
+<section class="full-bleed" id="swipe-section" aria-label="Interactive swipe comparison">
+  <div class="section-heading">
+    <h2>Plan versus reality</h2>
+    <p>Drag the handle to compare the 1947 plan with 2026 land use anywhere in the study area.</p>
+  </div>
+  <div class="swipe-controls">
+    <label class="switch">
+      <input type="checkbox" id="swipe-scan-toggle">
+      <span>Show original scan on the left instead of classified districts</span>
+    </label>
+    <div class="flyto-row" role="group" aria-label="Fly to neighborhood">
+      <span class="flyto-row__label">Jump to:</span>
+      <button type="button" class="flyto-btn" data-lon="-95.3625" data-lat="29.7600" data-zoom="15">Downtown</button>
+      <button type="button" class="flyto-btn" data-lon="-95.285" data-lat="29.735" data-zoom="14">Ship Channel</button>
+      <button type="button" class="flyto-btn" data-lon="-95.398" data-lat="29.790" data-zoom="15">Houston Heights</button>
+      <button type="button" class="flyto-btn" data-lon="-95.415" data-lat="29.753" data-zoom="15">River Oaks</button>
+      <button type="button" class="flyto-btn" data-lon="-95.360" data-lat="29.725" data-zoom="15">Third Ward</button>
+    </div>
+  </div>
+  <div id="compare-container" class="compare-container">
+    <div id="map-before" class="map-pane"></div>
+    <div id="map-after" class="map-pane"></div>
+  </div>
+  <div class="swipe-legends">
+    <div id="legend-swipe-left" class="legend legend--inline" aria-label="Left map legend"></div>
+    <div id="legend-swipe-right" class="legend legend--inline" aria-label="Right map legend"></div>
+  </div>
+</section>
+
+<!-- ============ AGREEMENT MAP ============ -->
+<section class="full-bleed" id="agree-section" aria-label="Agreement map">
+  <div class="section-heading">
+    <h2>Where the plan matches, and where it doesn't</h2>
+    <p>Click anywhere in the study area to see the 1947 district and 2026 use at that spot.</p>
+  </div>
+  <div id="map-agree" class="map-pane map-pane--tall"></div>
+  <div id="legend-agree" class="legend legend--inline" aria-label="Agreement legend"></div>
+  <div id="agree-popup-panel" class="agree-popup-panel" hidden>
+    <button type="button" class="agree-popup-panel__close" aria-label="Close">&times;</button>
+    <div id="agree-popup-content"></div>
+  </div>
+</section>
+
+<!-- ============ THE NUMBERS ============ -->
+<section class="numbers" id="numbers-section" aria-label="The numbers">
+  <div class="section-heading">
+    <h2>The numbers</h2>
+    <p>How much of each 1947 group's land matches its intended 2026 use &mdash; and how that compares with chance.</p>
+  </div>
+
+  <div class="chart-card">
+    <h3>Strict match by group</h3>
+    <p class="chart-card__note">Percent of each group's land area whose 2026 use matches the plan's strict intent, with 95% bootstrap confidence intervals. The hollow marker is the chance baseline; the band shows the spatial-null distribution.</p>
+    <div id="chart-dotwhisker" class="chart" role="img" aria-label="Dot and whisker chart of strict match percentage by group"></div>
+    <div id="chart-dotwhisker-tooltip" class="chart-tooltip" hidden></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>Where 1947-zoned land ended up</h3>
+    <p class="chart-card__note">Flows from each 1947 group to its 2026 land-use group, by acreage.</p>
+    <div id="chart-sankey" class="chart chart--wide" role="img" aria-label="Sankey diagram of 1947 zoning group to 2026 land use group"></div>
+    <div id="chart-sankey-tooltip" class="chart-tooltip" hidden></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>Strict match by district, A&ndash;J</h3>
+    <p class="chart-card__note">Each of the ten 1947 districts, from First Dwelling (A) to Heavy Industrial (J).</p>
+    <div id="chart-districts" class="chart" role="img" aria-label="Bar chart of strict match percentage by 1947 district"></div>
+    <div id="chart-districts-tooltip" class="chart-tooltip" hidden></div>
+  </div>
+</section>
+
+<!-- ============ DISTANCE DECAY ============ -->
+<section class="numbers" id="decay-section" aria-label="Registration sensitivity">
+  <div class="section-heading">
+    <h2>How close is close?</h2>
+    <p>If we deliberately shift the georeferenced 1947 layer sideways, agreement should fall &mdash; and it does,
+    monotonically, which is independent evidence the registration is sound.</p>
+  </div>
+  <div class="chart-card">
+    <div id="chart-decay" class="chart" role="img" aria-label="Line chart of strict match percentage versus shift distance in feet, one line per group"></div>
+    <div id="chart-decay-tooltip" class="chart-tooltip" hidden></div>
+  </div>
+</section>
+
+<!-- ============ METHOD & CREDITS ============ -->
+<section class="colophon" id="method-section" aria-label="Method and credits">
+  <div class="colophon__inner">
+    <h2>Method &amp; caveats</h2>
+    <ul>
+      <li>The 1947 districts were digitized automatically from a scanned paper map by texture classification, then
+      checked against a blind visual reading of 270 stratified sample points (made by a single rater, an AI vision model
+      directed by the analyst): about 86% correct at the group level &mdash; high for residential and industrial, but only
+      about 42% of the area mapped as commercial is truly commercial on the 1947 map, so treat the commercial figures with
+      more caution.</li>
+      <li>The scan was georeferenced with 32 ground-control points; the registration's check-point error is about 54 ft, with roughly 30% of the study area lying outside the control-point hull and therefore less certain.</li>
+      <li>Undeveloped, unknown, and vacant parcels and rights-of-way are excluded from every percentage's denominator.</li>
+      <li>Every reported group difference beats 400 random spatial shifts of the 1947 layer.</li>
+    </ul>
+    <p>
+      Full method: <a href="https://github.com/jseppi/houston1947/blob/main/methodology.md" target="_blank" rel="noopener">methodology.md</a>
+      &middot; Results detail: <a href="https://github.com/jseppi/houston1947/blob/main/results.md" target="_blank" rel="noopener">results.md</a>
+      &middot; Code and data: <a href="https://github.com/jseppi/houston1947" target="_blank" rel="noopener">github.com/jseppi/houston1947</a>
+    </p>
+    <h3>Credits</h3>
+    <p>1947 map scan: David Rumsey Map Collection, David Rumsey Map Center, Stanford Libraries (CC BY-NC-SA).
+    2026 land use: City of Houston / Harris County Appraisal District.
+    Basemap: <a href="https://openfreemap.org">OpenFreeMap</a>, &copy; OpenStreetMap contributors (ODbL); ground control also from OpenStreetMap.</p>
+  </div>
+</section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pmtiles@4.5.0/dist/pmtiles.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@maplibre/maplibre-gl-compare@0.5.0/dist/maplibre-gl-compare.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/scrollama@3.2.0/build/scrollama.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
