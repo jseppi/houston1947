@@ -240,3 +240,4 @@ svg text { fill: var(--text-secondary); font-family: "Inter", system-ui, sans-se
   .full-bleed, .numbers { padding-left: 16px; padding-right: 16px; }
   .hero__content { padding-top: 22vh; }
 }
+.colophon .credits { font-size: 0.92rem; padding-left: 1.2em; }
