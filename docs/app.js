@@ -407,16 +407,32 @@
     const right = document.getElementById('legend-swipe-right');
     left.innerHTML = '';
     right.innerHTML = '';
-    if (showScan) {
-      const p = document.createElement('div');
-      p.className = 'legend__item';
-      p.textContent = 'Original 1947 scan (unclassified)';
-      left.appendChild(p);
-    } else {
-      ['Residential', 'Commercial', 'Industrial', 'Public/Park'].forEach((g) => {
-        left.appendChild(legendDot(groupColor(g), g + ' district'));
+    // Left map: the 1947 districts A–J, grouped. With the scan showing, each entry is the
+    // printed screen pattern cropped from the map's own legend; otherwise the colour used
+    // for that district on the classified layer.
+    const names = (App.lookup && App.lookup.zone_names) || {};
+    ['Residential', 'Commercial', 'Industrial'].forEach((g) => {
+      const label = document.createElement('div');
+      label.className = 'legend__group-label';
+      label.textContent = g;
+      left.appendChild(label);
+      const codes = g === 'Residential' ? 'ABCD' : g === 'Commercial' ? 'EFG' : 'HIJ';
+      codes.split('').forEach((code) => {
+        const text = `${code} · ${names[code] || ''}`;
+        if (!showScan) { left.appendChild(legendDot(zoneColor(code), text)); return; }
+        const item = document.createElement('span');
+        item.className = 'legend__item';
+        const img = document.createElement('img');
+        img.className = 'legend__swatch legend__swatch--pattern';
+        img.src = `${DATA}legend_swatches/${code}.png`;
+        img.alt = `1947 map pattern for district ${code}`;
+        const span = document.createElement('span');
+        span.textContent = text;
+        item.appendChild(img);
+        item.appendChild(span);
+        left.appendChild(item);
       });
-    }
+    });
     const luNames = App.palette.lu2026 && Object.keys(App.palette.lu2026).length
       ? Object.keys(App.palette.lu2026)
       : ['Single-Family Residential', 'Multi-Family Residential', 'Commercial', 'Office', 'Industrial', 'Public & Institutional', 'Transportation & Utility', 'Park & Open Spaces'];
