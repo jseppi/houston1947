@@ -164,9 +164,15 @@
   </div>
 
   <div class="chart-card">
-    <h3>Strict match by group</h3>
-    <p class="chart-card__note">Percent of each group's land area whose 2026 use matches the plan's strict intent, with 95% bootstrap confidence intervals. The hollow marker is the chance baseline; the band shows the spatial-null distribution.</p>
-    <div id="chart-dotwhisker" class="chart" role="img" aria-label="Dot and whisker chart of strict match percentage by group"></div>
+    <h3>Match by group: intended use and permitted use</h3>
+    <p class="chart-card__note"><strong>Intended use</strong> (solid dot) counts land whose 2026 use is what the district
+    was meant for: homes in residential districts, businesses in commercial ones, industry in industrial ones.
+    <strong>Permitted use</strong> (ring) also counts any use the cumulative 1947 ordinance allowed there, such as homes or
+    shops in an industrial district. Whiskers are 95% bootstrap confidence intervals, the hollow grey marker is the
+    chance baseline, and the shaded band is the range from 400 random shifts of the 1947 map.</p>
+    <p class="chart-card__note">Permitted use only beats chance for residential districts. Commercial and industrial
+    districts allowed almost every use, so nearly all of their land "conforms" no matter where the districts are drawn.</p>
+    <div id="chart-dotwhisker" class="chart" role="img" aria-label="Dot and whisker chart of intended-use and permitted-use match by group"></div>
     <div id="chart-dotwhisker-tooltip" class="chart-tooltip" hidden></div>
   </div>
 
@@ -178,9 +184,10 @@
   </div>
 
   <div class="chart-card">
-    <h3>Strict match by district, A&ndash;J</h3>
-    <p class="chart-card__note">Each of the ten 1947 districts, from First Dwelling (A) to Heavy Industrial (J).</p>
-    <div id="chart-districts" class="chart" role="img" aria-label="Bar chart of strict match percentage by 1947 district"></div>
+    <h3>Match by district, A&ndash;J</h3>
+    <p class="chart-card__note">Each of the ten 1947 districts, from First Dwelling (A) to Heavy Industrial (J). Solid bars:
+    intended use (strict). Light bars: permitted use (cumulative).</p>
+    <div id="chart-districts" class="chart" role="img" aria-label="Bar chart of intended-use and permitted-use match by 1947 district"></div>
     <div id="chart-districts-tooltip" class="chart-tooltip" hidden></div>
   </div>
 </section>

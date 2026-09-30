@@ -300,7 +300,7 @@ null (6.2).
 - The 1947 zone raster was translated with wrap-around by 400 random vectors, 3,000–20,000 ft long, in random
   directions.
 - The study-area mask and the 2026 parcels were held fixed.
-- Agreement was recomputed for each translation.
+- Strict and cumulative agreement were recomputed for each translation.
 
 **Why it's the better null:** it preserves the internal spatial structure of both layers and destroys only their
 registration.
@@ -395,8 +395,20 @@ The headline results are in Table 4.
 
 **Significance.** Observed strict agreement exceeds all 400 toroidal shifts for every group (p < 0.0025).
 
-**Cumulative agreement** is informative only for the residential group. The commercial and industrial districts
-permitted almost every use, so their cumulative agreement equals chance.
+**Cumulative agreement** is reported in full in Table 5. The same baseline, toroidal null (400 shifts) and block
+bootstrap are applied as for the strict measure.
+
+**Table 5. Cumulative (permitted-use) agreement.**
+
+| 1947 group | Cumulative (95% CI) | Corrected cumulative (95% CI) | Baseline E | Chance-corr. index | Toroidal null mean / p95 | p-value |
+|---|---|---|---|---|---|---|
+| Residential | 79.1% (77.0–81.1) | 78.1% (68.1–88.1) | 62.6% | 0.44 | 63.2% / 69.1% | < 0.0025 |
+| Commercial | 77.9% (74.1–81.5) | 86.0% (73.6–98.4) | 76.9% | 0.04 | 78.8% / 88.4% | 0.65 |
+| Industrial | 99.9% (99.9–100.0) | 100.0% | 99.9% | −0.08 | 99.9% / 100.0% | 0.71 |
+
+Cumulative agreement is informative only for the residential group, where it clearly exceeds both the independence
+baseline and the spatial null. The commercial and industrial districts permitted almost every use, so their
+cumulative agreement is indistinguishable from random placement of the districts.
 
 **Map accuracy** at the group level:
 
@@ -419,9 +431,9 @@ permitted almost every use, so their cumulative agreement equals chance.
 
 ## 9. Sensitivity analyses
 
-Headline strict agreement was recomputed under alternative processing choices (Table 5).
+Headline strict agreement was recomputed under alternative processing choices (Table 6).
 
-**Table 5. Sensitivity of strict agreement to processing choices.**
+**Table 6. Sensitivity of strict agreement to processing choices.**
 
 | Variant | Residential | Commercial | Industrial |
 |---|---|---|---|

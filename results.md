@@ -20,16 +20,25 @@ Undeveloped, Unknown and Vacant parcels and right-of-way are excluded from the d
   from the scan, on 270 stratified sample points. It has wider CIs but carries no classification bias.
 - **Significance:** every group beats all 400 toroidal random shifts of the 1947 layer (p < 0.0025).
   The null means are 46%, 14% and 27%.
-- **Cumulative match** (use *permitted* by the zone):
 
-  | Group | Cumulative match | Chance level |
-  |---|---|---|
-  | Residential | 79% | 63% (index 0.44) |
-  | Commercial | 78% | 77% |
-  | Industrial | ~100% | ~100% |
+## Permitted-use (cumulative) match by group
 
-  For commercial and industrial the cumulative measure is uninformative, because those zones permitted nearly
-  everything.
+This counts any 2026 use that the cumulative 1947 ordinance allowed in the district, not only its intended use.
+Same denominator as above.
+
+| 1947 group | Cumulative match (map) | 95% CI | Corrected for map errors | No-relationship baseline | Chance-corrected index | Spatial null mean / p95 | p-value vs null |
+|---|---|---|---|---|---|---|---|
+| Residential | **79%** | 77–81 | 78% | 63% | 0.44 | 63% / 69% | < 0.0025 |
+| Commercial | **78%** | 74–82 | 86% | 77% | 0.04 | 79% / 88% | 0.65 |
+| Industrial | **~100%** | 99.9–100 | 100% | ~100% | −0.08 | ~100% / 100% | 0.71 |
+
+- **Residential:** the permitted-use match beats chance clearly (79% vs 63%). Most of the difference from the strict
+  figure is public/institutional and park land, which the plan allowed in residential districts.
+- **Commercial and industrial:** the permitted-use match is **no better than chance** (p = 0.65 and 0.71). Those
+  districts permitted almost every use, so nearly all their land "conforms" wherever the district lines are drawn.
+  For these groups only the strict measure carries information.
+- The corrected column uses the same design-based estimator as above; its confidence intervals are in
+  `accuracy_v3_report.md`.
 
 **Reading:**
 - A majority of residential-zoned land is residential today. Most of the rest is public/institutional or park use,

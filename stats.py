@@ -121,6 +121,7 @@ def toroidal_null(zones, lu, ext, S, Cm, neutral, n_shifts, rng):
     ny, nx = zones.shape
     groups = GROUP_DISTRICTS
     results = {g: [] for g in groups}
+    results_cum = {g: [] for g in groups}
     for i in range(n_shifts):
         r = rng.uniform(config.NULL_SHIFT_MIN_FT, config.NULL_SHIFT_MAX_FT)
         th = rng.uniform(0, 2 * np.pi)
@@ -130,7 +131,9 @@ def toroidal_null(zones, lu, ext, S, Cm, neutral, n_shifts, rng):
         out_group, _, _ = group_pcts_from_zonelu(z, lu, ext, S, Cm, neutral, groups)
         for g in groups:
             results[g].append(out_group[g]["strict_pct"])
-    return {g: np.array(v) for g, v in results.items()}
+            results_cum[g].append(out_group[g]["cumulative_pct"])
+    return ({g: np.array(v) for g, v in results.items()},
+            {g: np.array(v) for g, v in results_cum.items()})
 
 
 def distance_decay(zones, lu, ext, S, Cm, neutral, max_ft, step_ft, n_dirs):
@@ -270,7 +273,7 @@ def main():
     baseline = marginal_baseline(grids.zones, lu, grids.ext, S, Cm, neutral)
 
     print(f"Toroidal-shift null ({config.N_NULL_SHIFTS} shifts)...")
-    null = toroidal_null(grids.zones, lu, grids.ext, S, Cm, neutral, config.N_NULL_SHIFTS, rng)
+    null, null_cum = toroidal_null(grids.zones, lu, grids.ext, S, Cm, neutral, config.N_NULL_SHIFTS, rng)
 
     print("Distance-decay curve...")
     decay_rows = distance_decay(grids.zones, lu, grids.ext, S, Cm, neutral,
@@ -366,7 +369,8 @@ def main():
                     "bootstrap_cumulative_ci_lo", "bootstrap_cumulative_ci_hi",
                     "marginal_baseline_strict_pct", "marginal_baseline_cumulative_pct",
                     "chance_corrected_index_strict", "chance_corrected_index_cumulative",
-                    "null_mean_strict_pct", "null_p95_strict_pct", "empirical_p_value_strict"])
+                    "null_mean_strict_pct", "null_p95_strict_pct", "empirical_p_value_strict",
+                    "null_mean_cumulative_pct", "null_p95_cumulative_pct", "empirical_p_value_cumulative"])
         for g in GROUP_DISTRICTS:
             o = out_group[g]
             b = boot[g]
@@ -377,16 +381,19 @@ def main():
             kappa_c = chance_corrected(o["cumulative_pct"], bl["cumulative_pct"])
             nv = null[g]
             pval = float((nv >= o["strict_pct"]).mean())
+            nc = null_cum[g]
+            pval_c = float((nc >= o["cumulative_pct"]).mean())
             w.writerow([g, round(o["denom"] * grids.px_acres, 1), round(o["strict_pct"], 1), round(o["cumulative_pct"], 1),
                         round(s_lo, 1), round(s_hi, 1), round(c_lo, 1), round(c_hi, 1),
                         round(bl["strict_pct"], 1), round(bl["cumulative_pct"], 1),
                         round(kappa_s, 3), round(kappa_c, 3),
-                        round(nv.mean(), 1), round(np.percentile(nv, 95), 1), round(pval, 4)])
+                        round(nv.mean(), 1), round(np.percentile(nv, 95), 1), round(pval, 4),
+                        round(nc.mean(), 1), round(np.percentile(nc, 95), 1), round(pval_c, 4)])
         # district rows
         for k in DIST:
             o = out_district[k]
             w.writerow([f"district {k}", round(o["denom"] * grids.px_acres, 1), round(o["strict_pct"], 1), round(o["cumulative_pct"], 1),
-                        "", "", "", "", "", "", "", "", "", "", ""])
+                        "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
 
     # --- write stats_report.md ----------------------------------------------------
     lines = ["# Statistics report (task 5)", ""]
@@ -405,6 +412,18 @@ def main():
                       f"[{s_lo:.1f}, {s_hi:.1f}] | {o['cumulative_pct']:.1f}% | [{c_lo:.1f}, {c_hi:.1f}] | "
                       f"{bl['strict_pct']:.1f}% | {kappa_s:.2f} | {nv.mean():.1f}% / {np.percentile(nv,95):.1f}% | "
                       f"{pval:.4f} |")
+    lines.append("")
+    lines.append("## Cumulative (permitted-use) match: baseline, chance-corrected index, null\n")
+    lines.append("| Group | Cumulative % | 95% CI | Marginal baseline | Chance-corrected index | "
+                  "Null mean / p95 | Empirical p-value |")
+    lines.append("|---|---|---|---|---|---|---|")
+    for g in GROUP_DISTRICTS:
+        o = out_group[g]; b = boot[g]; bl = baseline[g]; nc = null_cum[g]
+        c_lo, c_hi = np.nanpercentile(b["cumulative"], [2.5, 97.5])
+        lines.append(f"| {g} | {o['cumulative_pct']:.1f}% | [{c_lo:.1f}, {c_hi:.1f}] | {bl['cumulative_pct']:.1f}% | "
+                      f"{chance_corrected(o['cumulative_pct'], bl['cumulative_pct']):.2f} | "
+                      f"{nc.mean():.1f}% / {np.percentile(nc, 95):.1f}% | "
+                      f"{float((nc >= o['cumulative_pct']).mean()):.4f} |")
     lines.append("")
     lines.append("## By district (strict / cumulative %, corrected denominator)\n")
     lines.append("| District | Strict % | Cumulative % |")

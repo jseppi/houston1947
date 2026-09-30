@@ -661,87 +661,102 @@
     const groups = (App.results && App.results.groups) || [];
     if (!groups.length) { container.innerHTML = '<p class="chart-card__note">Results not available yet.</p>'; return; }
 
+    // Two rows per 1947 group: intended use (strict) and permitted use (cumulative).
+    const MEASURES = [
+      { key: 'strict', label: 'Intended use (strict)', short: 'Intended', v: 'strict', lo: 'strict_lo', hi: 'strict_hi',
+        base: 'baseline', nm: 'null_mean', np: 'null_p95', p: 'p_value' },
+      { key: 'cum', label: 'Permitted use (cumulative)', short: 'Permitted', v: 'cumulative', lo: 'cum_lo', hi: 'cum_hi',
+        base: 'baseline_cum', nm: 'null_mean_cum', np: 'null_p95_cum', p: 'p_value_cum' }
+    ];
+    const rowsData = groups.flatMap((g) => MEASURES.map((m) => ({
+      id: g.group + '|' + m.key, group: g.group, measure: m.label, short: m.short, isCum: m.key === 'cum',
+      v: g[m.v], lo: g[m.lo], hi: g[m.hi], base: g[m.base], nm: g[m.nm], np: g[m.np], p: g[m.p]
+    })));
+    const fmtP = (p) => (p == null ? 'n/a' : p === 0 ? '< 0.0025' : p.toFixed(2));
+
     function render() {
       container.innerHTML = '';
       const width = Math.max(320, container.clientWidth);
-      const rowH = 64;
-      const margin = { top: 20, right: 40, bottom: 36, left: 110 };
-      const height = groups.length * rowH + margin.top + margin.bottom;
+      const rowH = 40;
+      const pairGap = 12;
+      const narrow = width < 560;
+      const margin = { top: 20, right: 48, bottom: 36, left: narrow ? 170 : 290 };
+      const height = rowsData.length * rowH + (groups.length - 1) * pairGap + margin.top + margin.bottom;
       const svg = d3.select(container).append('svg')
         .attr('viewBox', `0 0 ${width} ${height}`)
         .attr('role', 'group')
-        .attr('aria-label', 'Strict match percentage by 1947 group, with confidence intervals and chance baselines');
+        .attr('aria-label', 'Intended-use and permitted-use match by 1947 group, with confidence intervals, chance baselines and spatial-null bands');
 
       const x = d3.scaleLinear().domain([0, 100]).range([margin.left, width - margin.right]);
-      const y = d3.scaleBand().domain(groups.map((g) => g.group)).range([margin.top, height - margin.bottom]).padding(0.4);
+      const nTicks = narrow ? 2 : 5;
+      const yPos = {};
+      let cursor = margin.top;
+      rowsData.forEach((d, i) => {
+        if (i > 0 && i % 2 === 0) cursor += pairGap;
+        yPos[d.id] = cursor + rowH / 2;
+        cursor += rowH;
+      });
+      const cy = (d) => yPos[d.id];
 
-      // gridlines
       svg.append('g').attr('class', 'grid')
-        .selectAll('line').data(x.ticks(5)).join('line')
+        .selectAll('line').data(x.ticks(nTicks)).join('line')
         .attr('x1', (d) => x(d)).attr('x2', (d) => x(d))
         .attr('y1', margin.top).attr('y2', height - margin.bottom);
-
-      svg.append('g').selectAll('text').data(x.ticks(5)).join('text')
+      svg.append('g').selectAll('text').data(x.ticks(nTicks)).join('text')
         .attr('x', (d) => x(d)).attr('y', height - margin.bottom + 20)
         .attr('text-anchor', 'middle').attr('font-size', 11)
         .text((d) => d + '%');
 
-      const rows = svg.selectAll('.row').data(groups).join('g').attr('class', 'row');
+      const rows = svg.selectAll('.row').data(rowsData).join('g').attr('class', 'row');
 
-      // null band (mean to p95)
+      // spatial-null band (mean to p95)
       rows.append('rect')
-        .attr('x', (d) => x(d.null_mean))
-        .attr('width', (d) => Math.max(0, x(d.null_p95) - x(d.null_mean)))
-        .attr('y', (d) => y(d.group) - 6)
-        .attr('height', 12)
+        .attr('x', (d) => x(d.nm)).attr('width', (d) => Math.max(2, x(d.np) - x(d.nm)))
+        .attr('y', (d) => cy(d) - 6).attr('height', 12)
         .attr('fill', 'var(--null-band)');
-
-      // CI whisker
+      // CI whisker + caps
       rows.append('line')
-        .attr('x1', (d) => x(d.strict_lo)).attr('x2', (d) => x(d.strict_hi))
-        .attr('y1', (d) => y(d.group) + y.bandwidth() / 2)
-        .attr('y2', (d) => y(d.group) + y.bandwidth() / 2)
+        .attr('x1', (d) => x(d.lo)).attr('x2', (d) => x(d.hi))
+        .attr('y1', cy).attr('y2', cy)
         .attr('stroke', (d) => groupColor(d.group)).attr('stroke-width', 2);
-      // whisker caps
-      [['strict_lo'], ['strict_hi']].forEach(([k]) => {
+      ['lo', 'hi'].forEach((k) => {
         rows.append('line')
           .attr('x1', (d) => x(d[k])).attr('x2', (d) => x(d[k]))
-          .attr('y1', (d) => y(d.group) + y.bandwidth() / 2 - 6)
-          .attr('y2', (d) => y(d.group) + y.bandwidth() / 2 + 6)
+          .attr('y1', (d) => cy(d) - 6).attr('y2', (d) => cy(d) + 6)
           .attr('stroke', (d) => groupColor(d.group)).attr('stroke-width', 2);
       });
-
-      // chance baseline (hollow marker)
+      // chance baseline (hollow grey marker)
       rows.append('circle')
-        .attr('cx', (d) => x(d.baseline)).attr('cy', (d) => y(d.group) + y.bandwidth() / 2)
+        .attr('cx', (d) => x(d.base)).attr('cy', cy)
         .attr('r', 6).attr('fill', 'var(--surface-1)').attr('stroke', 'var(--chance-marker)').attr('stroke-width', 2);
-
-      // strict dot (filled, r>=4)
-      const marks = rows.append('circle')
-        .attr('class', 'mark')
-        .attr('cx', (d) => x(d.strict)).attr('cy', (d) => y(d.group) + y.bandwidth() / 2)
-        .attr('r', 7).attr('fill', (d) => groupColor(d.group)).attr('stroke', 'var(--surface-1)').attr('stroke-width', 2)
-        .style('cursor', 'pointer');
-
-      marks.append('title').text((d) => `${d.group}: ${fmtPct(d.strict)} strict match (${fmtPct(d.strict_lo)}–${fmtPct(d.strict_hi)}), chance ${fmtPct(d.baseline)}`);
-
-      // direct label: value at end
+      // observed value: solid dot for intended use, coloured ring for permitted use
+      rows.append('circle').attr('class', 'mark')
+        .attr('cx', (d) => x(d.v)).attr('cy', cy).attr('r', 7)
+        .attr('fill', (d) => (d.isCum ? 'var(--surface-1)' : groupColor(d.group)))
+        .attr('stroke', (d) => (d.isCum ? groupColor(d.group) : 'var(--surface-1)'))
+        .attr('stroke-width', (d) => (d.isCum ? 3 : 2))
+        .append('title').text((d) => `${d.group}, ${d.measure}: ${fmtPct(d.v)} (${fmtPct(d.lo)}–${fmtPct(d.hi)}); chance ${fmtPct(d.base)}`);
+      // direct value label, right of whichever ends later (CI or null band)
       rows.append('text')
-        .attr('x', (d) => x(d.strict_hi) + 14)
-        .attr('y', (d) => y(d.group) + y.bandwidth() / 2 + 4)
+        .attr('x', (d) => Math.min(x(Math.max(d.hi, d.np)) + 12, width - margin.right + 6))
+        .attr('y', (d) => cy(d) + 4)
         .attr('font-size', 12).attr('font-weight', 700).attr('fill', 'var(--text-primary)')
-        .text((d) => fmtPct(d.strict));
+        .text((d) => fmtPct(d.v));
 
-      // y axis labels
-      svg.append('g').selectAll('text.ylab').data(groups).join('text').attr('class', 'ylab')
-        .attr('x', margin.left - 14).attr('y', (d) => y(d.group) + y.bandwidth() / 2 + 4)
-        .attr('text-anchor', 'end').attr('font-size', 13).attr('font-weight', 600).attr('fill', 'var(--text-primary)')
+      // labels: group name on the first row of each pair, measure name on every row
+      rows.filter((d) => !d.isCum).append('text')
+        .attr('x', 0).attr('y', (d) => cy(d) + 4)
+        .attr('font-size', 13).attr('font-weight', 600).attr('fill', 'var(--text-primary)')
         .text((d) => d.group);
+      rows.append('text')
+        .attr('x', margin.left - 12).attr('y', (d) => cy(d) + 4).attr('text-anchor', 'end')
+        .attr('font-size', 12).attr('fill', 'var(--text-secondary)')
+        .text((d) => (narrow ? d.short : d.measure));
 
-      // hit targets for hover
+      // hover targets
       rows.append('rect')
         .attr('x', margin.left).attr('width', width - margin.left - margin.right)
-        .attr('y', (d) => y(d.group)).attr('height', y.bandwidth())
+        .attr('y', (d) => cy(d) - rowH / 2).attr('height', rowH)
         .attr('fill', 'transparent')
         .on('pointermove', (event, d) => {
           tooltip.hidden = false;
@@ -755,11 +770,12 @@
             r.appendChild(v); r.appendChild(l);
             tooltip.appendChild(r);
           };
-          const title = document.createElement('div'); title.style.fontWeight = 700; title.textContent = d.group;
+          const title = document.createElement('div'); title.style.fontWeight = 700; title.textContent = `${d.group} · ${d.measure}`;
           tooltip.appendChild(title);
-          rowLine('strict match', fmtPct(d.strict) + ` (${fmtPct(d.strict_lo)}–${fmtPct(d.strict_hi)})`);
-          rowLine('chance baseline', fmtPct(d.baseline));
-          rowLine('spatial-null mean–p95', `${fmtPct(d.null_mean)}–${fmtPct(d.null_p95)}`);
+          rowLine('match (95% CI)', fmtPct(d.v) + ` (${fmtPct(d.lo)}–${fmtPct(d.hi)})`);
+          rowLine('chance baseline', fmtPct(d.base));
+          rowLine('spatial-null mean–p95', `${fmtPct(d.nm)}–${fmtPct(d.np)}`);
+          rowLine('p-value vs spatial null', fmtP(d.p));
         })
         .on('pointerleave', () => { tooltip.hidden = true; });
     }
@@ -856,7 +872,7 @@
       const height = 320;
       const svg = d3.select(container).append('svg')
         .attr('viewBox', `0 0 ${width} ${height}`)
-        .attr('role', 'group').attr('aria-label', 'Strict match percentage by district A through J');
+        .attr('role', 'group').attr('aria-label', 'Intended-use and permitted-use match by district A through J');
 
       const x = d3.scaleBand().domain(sorted.map((d) => d.code)).range([margin.left, width - margin.right]).padding(0.35);
       const y = d3.scaleLinear().domain([0, 100]).range([height - margin.bottom, margin.top]);
@@ -870,23 +886,38 @@
         .attr('x', margin.left - 8).attr('y', (d) => y(d) + 4)
         .attr('text-anchor', 'end').attr('font-size', 11).text((d) => d + '%');
 
-      const barW = Math.min(24, x.bandwidth());
-      const bars = svg.selectAll('.bar').data(sorted).join('rect')
-        .attr('x', (d) => x(d.code) + (x.bandwidth() - barW) / 2)
-        .attr('width', barW)
-        .attr('y', (d) => y(d.strict))
-        .attr('height', (d) => Math.max(0, y(0) - y(d.strict)))
-        .attr('rx', 4)
-        .attr('fill', (d) => groupColor(d.group))
-        .style('cursor', 'pointer');
+      // Paired bars: intended use (strict, solid) and permitted use (cumulative, light with outline).
+      const barW = Math.min(18, x.bandwidth() / 2 - 1);
+      const gap = 2;
+      const bx = (d, i) => x(d.code) + x.bandwidth() / 2 + (i === 0 ? -barW - gap / 2 : gap / 2);
+      const cumBars = svg.selectAll('.bar-cum').data(sorted).join('rect').attr('class', 'bar-cum')
+        .attr('x', (d) => bx(d, 1)).attr('width', barW)
+        .attr('y', (d) => y(d.cumulative)).attr('height', (d) => Math.max(0, y(0) - y(d.cumulative)))
+        .attr('rx', 3).attr('fill', (d) => groupColor(d.group)).attr('fill-opacity', 0.28)
+        .attr('stroke', (d) => groupColor(d.group)).attr('stroke-width', 1.5);
+      const bars = svg.selectAll('.bar').data(sorted).join('rect').attr('class', 'bar')
+        .attr('x', (d) => bx(d, 0)).attr('width', barW)
+        .attr('y', (d) => y(d.strict)).attr('height', (d) => Math.max(0, y(0) - y(d.strict)))
+        .attr('rx', 3).attr('fill', (d) => groupColor(d.group));
 
-      bars.append('title').text((d) => `${d.code} — ${d.name}: ${fmtPct(d.strict)} strict match`);
-      bars.on('pointermove', (event, d) => {
-        tooltip.hidden = false;
-        tooltip.style.left = (event.clientX + 14) + 'px';
-        tooltip.style.top = (event.clientY - 12) + 'px';
-        tooltip.innerHTML = `<div style="font-weight:700">${d.code} — ${d.name}</div><div class="chart-tooltip__row"><span class="chart-tooltip__value">${fmtPct(d.strict)}</span><span class="chart-tooltip__label"> strict match</span></div>`;
-      }).on('pointerleave', () => { tooltip.hidden = true; });
+      [bars, cumBars].forEach((sel) => {
+        sel.style('cursor', 'pointer');
+        sel.append('title').text((d) => `${d.code} — ${d.name}: ${fmtPct(d.strict)} intended use, ${fmtPct(d.cumulative)} permitted use`);
+        sel.on('pointermove', (event, d) => {
+          tooltip.hidden = false;
+          tooltip.style.left = (event.clientX + 14) + 'px';
+          tooltip.style.top = (event.clientY - 12) + 'px';
+          tooltip.innerHTML = '';
+          const t = document.createElement('div'); t.style.fontWeight = 700; t.textContent = `${d.code} — ${d.name}`;
+          tooltip.appendChild(t);
+          [[d.strict, 'intended use (strict)'], [d.cumulative, 'permitted use (cumulative)']].forEach(([v, l]) => {
+            const r = document.createElement('div'); r.className = 'chart-tooltip__row';
+            const va = document.createElement('span'); va.className = 'chart-tooltip__value'; va.textContent = fmtPct(v);
+            const la = document.createElement('span'); la.className = 'chart-tooltip__label'; la.textContent = ' ' + l;
+            r.appendChild(va); r.appendChild(la); tooltip.appendChild(r);
+          });
+        }).on('pointerleave', () => { tooltip.hidden = true; });
+      });
 
       svg.append('g').selectAll('text.xlab').data(sorted).join('text').attr('class', 'xlab')
         .attr('x', (d) => x(d.code) + x.bandwidth() / 2).attr('y', height - margin.bottom + 18)

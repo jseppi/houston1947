@@ -8,6 +8,14 @@
 | Commercial | 2,248 | 37.7% | [33.3, 41.5] | 77.9% | [74.1, 81.5] | 12.1% | 0.29 | 13.9% / 18.7% | 0.0000 |
 | Industrial | 7,257 | 52.1% | [47.3, 56.9] | 99.9% | [99.9, 100.0] | 22.9% | 0.38 | 26.9% / 37.3% | 0.0000 |
 
+## Cumulative (permitted-use) match: baseline, chance-corrected index, null
+
+| Group | Cumulative % | 95% CI | Marginal baseline | Chance-corrected index | Null mean / p95 | Empirical p-value |
+|---|---|---|---|---|---|---|
+| Residential | 79.1% | [77.0, 81.1] | 62.6% | 0.44 | 63.2% / 69.1% | 0.0000 |
+| Commercial | 77.9% | [74.1, 81.5] | 76.9% | 0.04 | 78.8% / 88.4% | 0.6500 |
+| Industrial | 99.9% | [99.9, 100.0] | 99.9% | -0.08 | 99.9% / 100.0% | 0.7100 |
+
 ## By district (strict / cumulative %, corrected denominator)
 
 | District | Strict % | Cumulative % |
